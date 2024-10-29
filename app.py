@@ -1,21 +1,19 @@
-from flask import Flask,jsonify,render_template,request,redirect,url_for,session
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 import sqlite3
 import time
-import requests  # Add this import
 
 app = Flask(__name__)
 
-file = open("sessionkey.txt","r")
-SESSIONKEY  = file.read() # reading from a gitignore file in order not to leak the key
+# Load secret key from a file
+with open("sessionkey.txt", "r") as file:
+    SESSIONKEY = file.read()
+app.secret_key = SESSIONKEY
 
-app.secret_key=SESSIONKEY
-
-
-DATABASE = 'pizza_orders.db'
-connection = sqlite3.connect("pizza_order.db",check_same_thread=False)
+DATABASE = 'pizza_order.db'
+connection = sqlite3.connect(DATABASE, check_same_thread=False)
 cursor = connection.cursor()
 
-# Table creation (unchanged)
+# Table creation
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS pizzaOrders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,15 +26,16 @@ CREATE TABLE IF NOT EXISTS pizzaOrders (
 )
 """)
 
-order = {}
 pizzaPrice = {
-    'Margherita': 3,
-    'Pepperoni': 5,
-    'Vegetarian': 4,
-    'BBQ-Chicken': 6,
-    'Hawaiian': 9
+    'Margherita': 10,
+    'Pepperoni': 13,
+    'Vegetarian': 12,
+    'BBQ-Chicken': 14,
+    'Hawaiian': 16
 }
 
+# Variable to track beep signal
+beep_signal = False
 
 @app.route('/')
 def index():
@@ -53,49 +52,54 @@ def table_number():
 def menu():
     table_nr = request.args.get('id')
     session['tableNr'] = table_nr
-    session['order'] ={}
-    return render_template('menu.html',table = session['tableNr'])
+    session['order'] = {}
+    return render_template('menu.html', table=session['tableNr'])
 
 @app.route("/submit_order", methods=['POST'])
 def submit():
-    pizza_type = request.form.get('pizza') 
-    if 'order' not in session : #if there is no order in session, create new order
+    pizza_type = request.form.get('pizza')
+    if 'order' not in session:
         session['order'] = {}
 
-    order = session['order'] #populate dictionary from session
-
-    if pizza_type in order:
-        order[pizza_type] += 1
-    else:
-        order[pizza_type] = 1 
-
-    session['order'] = order #updating session with data /send back to session
+    order = session['order']
+    order[pizza_type] = order.get(pizza_type, 0) + 1
+    session['order'] = order
     return jsonify({'message': f'{pizza_type} has been added to your cart!'})
 
 @app.route("/confirm")
 def confirm():
-    order = session.get('order',{})
+    order = session.get('order', {})
     total_amount = sum(quantity * pizzaPrice[pizza] for pizza, quantity in order.items())
-    return render_template("confirm.html",order = order,table = session['tableNr'], total = total_amount)
+    return render_template("confirm.html", order=order, table=session['tableNr'], total=total_amount)
 
 @app.route('/thankyou')
 def thankyou():
-    order = session.get('order' , {}) #if not found returns an empty dict {}
+    order = session.get('order', {})
     tableNr = session['tableNr']
     time_cur = time.strftime('%H:%M:%S')
 
-    for pizzaType,amount in order.items():
-        cursor.execute("INSERT INTO pizzaOrders (tablenr,pizza_type,quantity,time) VALUES (?,?,?,?)",(tableNr,pizzaType,amount,time_cur))
-    
-    session.pop('order',None) # clear the dictionary from the session
+    # Generate a new orderId
+    cursor.execute("SELECT MAX(orderId) FROM pizzaOrders")
+    last_order_id = cursor.fetchone()[0]
+    new_order_id = (last_order_id + 1) if last_order_id else 1
+
+    for pizzaType, amount in order.items():
+        cursor.execute(
+            "INSERT INTO pizzaOrders (orderId, tablenr, pizza_type, quantity, time) VALUES (?, ?, ?, ?, ?)",
+            (new_order_id, tableNr, pizzaType, amount, time_cur)
+        )
+
+    session.pop('order', None)
     connection.commit()
     return render_template('thankyou.html')
 
 @app.route('/dashboard')
 def dashboard():
     cursor.execute("""
-        SELECT po.orderId, po.tablenr, po.time, po.pizza_type, po.quantity
-        FROM pizzaOrders po
+        SELECT orderId, tablenr, time, pizza_type, quantity
+        FROM pizzaOrders
+        WHERE order_status = 'pending'
+        ORDER BY orderId
     """)
     orders_raw = cursor.fetchall()
     orders = {}
@@ -112,18 +116,24 @@ def dashboard():
 
 @app.route('/validate_order', methods=['POST'])
 def validate_order():
+    global beep_signal
     order_id = request.form.get('orderId')
-    # Delete the order from the database
+    print(f"Validating order with ID {order_id}")
     cursor.execute("DELETE FROM pizzaOrders WHERE orderId = ?", (order_id,))
     connection.commit()
-    # Send notification to Arduino
-    arduino_url = 'http://arduino_ip_address/beep'  # Replace with actual IP and endpoint
-    try:
-        response = requests.get(arduino_url)
-        print(f"Arduino response: {response.status_code}")
-    except Exception as e:
-        print(f"Error sending notification to Arduino: {e}")
+
+    # this sets the beep signal for arduino_client.py
+    beep_signal = True
     return redirect(url_for('dashboard'))
+
+@app.route('/get_beep_signal')
+def get_beep_signal():
+    global beep_signal
+    # Respond with the beep signal status and reset it
+    if beep_signal:
+        beep_signal = False
+        return jsonify({"beep": True})
+    return jsonify({"beep": False})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
