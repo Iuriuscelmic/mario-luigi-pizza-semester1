@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/general.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>Pizzeria del Gatito</title>
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" alt="Pizzeria del Gatito logo" src="/static/img/logo.png" />
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="#">Menu</a></li>
+          <li><a class="main-nav-link" href="#">Offers</a></li>
+          <li><a class="main-nav-link" href="#">About Us</a></li>
+          <li>
+            <a class="main-nav-link nav-cta" href="#"
+              ><ion-icon class="nav-icon" name="cart-outline"></ion-icon
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO SECIION -->
+      <section class="section-hero">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h1 class="heading-primary">
+              Welcome to <br />Pizzeria del Gatito
+            </h1>
+            <p class="hero-description">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quas
+              fuga veritatis totam repellat at suscipit. Tempore corrupti odit
+              nisi laudantium aliquid esse, illo nihil consequatur sunt
+              aspernatur architecto temporibus?
+            </p>
+            <a href="#" class="btn btn--full margin-right-sm"
+              >Become a member</a
+            >
+            <a href="#" class="btn btn--outline">Order &darr;</a>
+          </div>
+          <div class="hero-img-box">
+            <img
+              src="/static/img/hero.jpg"
+              class="hero-img"
+              alt="Mario and Luigi as cats"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- HERO SECTION END -->
+
+      <!-- MENU SECTION -->
+      <section class="section-menu">
+        <div class="container">
+          <span class="subheading">Menu</span>
+          <h2 class="heading-secondary">What would you like to eat?</h2>
+        </div>
+        <div class="container">
+          <nav class="menu-nav">
+            <ul class="menu-nav-list">
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab1')">
+                  <ion-icon name="pizza-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab2')">
+                  <ion-icon name="fast-food-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab3')">
+                  <ion-icon name="beer-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab4')">
+                  <ion-icon name="ice-cream-outline"></ion-icon>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- PIZZA TAB MENU -->
+        <div id="tab1" class="container tab-content active">
+          <div class="grid grid--3-cols">
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item" data-name="Margarita" data-price="11.80">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Tonno</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--seafood">
+                      <ion-icon name="fish-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, tuna and red
+                  onion.
+                </p>
+                <div class="add-item" data-name="Tonno" data-price="14.00">
+                  <div class="menu-item-price">&#8364; 14.00</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Diavola</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--spicy">
+                      <ion-icon
+                        name="flame-outline"
+                        class="cat-icon"
+                      ></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and spicy
+                  pepperoni.
+                </p>
+                <div class="add-item" data-name="Diavola" data-price="13.80">
+                  <div class="menu-item-price">&#8364; 13.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PIZZA TAB MENU END -->
+
+        <!-- SIDES TAB MENU -->
+        <div id="tab2" class="container tab-content">
+          <div class="grid grid--3-cols">
+            <div class="menu-card">
+              <img src="/static/img/fries1.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Fries</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Tonno</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--seafood">
+                      <ion-icon name="fish-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, tuna and red
+                  onion.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 14.00</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Diavola</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--spicy">
+                      <ion-icon
+                        name="flame-outline"
+                        class="cat-icon"
+                      ></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and spicy
+                  pepperoni.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 13.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SIDES TAB MENU END -->
+
+        <!-- DINKS MENU TAB -->
+        <div id="tab3" class="container tab-content">
+          <div class="grid grid--3-cols">
+            <div class="menu-card">
+              <img src="/static/img/cola.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Cola</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Tonno</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--seafood">
+                      <ion-icon name="fish-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, tuna and red
+                  onion.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 14.00</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Diavola</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--spicy">
+                      <ion-icon
+                        name="flame-outline"
+                        class="cat-icon"
+                      ></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and spicy
+                  pepperoni.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 13.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DRINKS TAB MENU END -->
+
+        <!-- DESERTS TAB MENU -->
+        <div id="tab4" class="container tab-content">
+          <div class="grid grid--3-cols">
+            <div class="menu-card">
+              <img src="/static/img/icecream.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Ice Cream</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Tonno</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--seafood">
+                      <ion-icon name="fish-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, tuna and red
+                  onion.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 14.00</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Diavola</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--spicy">
+                      <ion-icon
+                        name="flame-outline"
+                        class="cat-icon"
+                      ></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and spicy
+                  pepperoni.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 13.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DESERTS TAB MENU END -->
+      </section>
+      <!-- MENU SECTION END -->
+
+      <!-- ABOUT SECTION -->
+      <section class="section-about">
+        <div class="container">
+          <span class="subheading">About us</span>
+          <h2 class="heading-secondary">Meet the bang brothers!</h2>
+        </div>
+        <div class="container grid grid--2-cols grid--center-v">
+          <div class="member-text-box">
+            <h3 class="heading-tertiary">Mario: in the front!</h3>
+            <p class="member-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Dignissimos hic et nam architecto, voluptatum maiores eum magni
+              commodi impedit, voluptas autem. Saepe similique ratione ab modi
+              pariatur minus dignissimos magni.
+            </p>
+          </div>
+          <div class="member-img-box">
+            <img src="/static/img/mario.png" alt="Cat Mario" class="member-img" />
+          </div>
+          <div class="member-img-box">
+            <img src="/static/img/luigi.png" alt="Cat Luigi" class="member-img" />
+          </div>
+          <div class="member-text-box">
+            <h3 class="heading-tertiary">Luigi: from the back!</h3>
+            <p class="member-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Dignissimos hic et nam architecto, voluptatum maiores eum magni
+              commodi impedit, voluptas autem. Saepe similique ratione ab modi
+              pariatur minus dignissimos magni.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- ABOUT SECTION END -->
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
