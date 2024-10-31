@@ -146,7 +146,7 @@ Medium: 12px
   position: fixed;
   inset: 0 -400px 0 auto;
   display: grid;
-  grid-template-rows: 70px 1fr 70px;
+  grid-template-rows: 70px 1fr 20px 70px;
   box-shadow: 0.4rem -0.6rem 1.6rem #a1a1a1;
   transition: right 0.3s ease-in-out;
   /* background-color: rgba(0, 0, 0, 0.4); */

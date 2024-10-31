@@ -1,38 +1,226 @@
-[
-  {
-    "itemId": 1,
-    "name": "Margherita",
-    "price": 11.8,
-    "image": "/static/img/pizza1.jpg"
-  },
-  {
-    "itemId": 2,
-    "name": "Tonno",
-    "price": 14.0,
-    "image": "/static/img/pizza2.jpg"
-  },
-  {
-    "itemId": 3,
-    "name": "Diavola",
-    "price": 13.8,
-    "image": "/static/img/pizza3.jpg"
-  },
-  {
-    "itemId": 4,
-    "name": "Margherita",
-    "price": 11.8,
-    "image": "/static/img/pizza1.jpg"
-  },
-  {
-    "itemId": 5,
-    "name": "Margherita",
-    "price": 11.8,
-    "image": "/static/img/pizza1.jpg"
-  },
-  {
-    "itemId": 6,
-    "name": "Margherita",
-    "price": 11.8,
-    "image": "/static/img/pizza1.jpg"
-  }
-]
+{
+  "pizzaMenu": [
+    {
+      "itemId": 1,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 2,
+      "name": "Tonno",
+      "price": 14.0,
+      "image": "/static/img/pizza2.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "seafood"
+    },
+    {
+      "itemId": 3,
+      "name": "Diavola",
+      "price": 13.8,
+      "image": "/static/img/pizza3.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "spicy"
+    },
+    {
+      "itemId": 4,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 5,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 6,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 623,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 612,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 651,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    }
+  ],
+  "sidesMenu": [
+    {
+      "itemId": 7,
+      "name": "Fries",
+      "price": 11.8,
+      "image": "/static/img/fries1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 8,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 9,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 10,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 11,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 12,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    }
+  ],
+  "drinksMenu": [
+    {
+      "itemId": 13,
+      "name": "Cola",
+      "price": 11.8,
+      "image": "/static/img/cola.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 14,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 15,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 16,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 17,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 18,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    }
+  ],
+  "desertMenu": [
+    {
+      "itemId": 19,
+      "name": "Ice Cream",
+      "price": 11.8,
+      "image": "/static/img/icecream.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 20,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 21,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 22,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 23,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 24,
+      "name": "Margherita",
+      "price": 11.8,
+      "image": "/static/img/pizza1.jpg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    }
+  ]
+}
