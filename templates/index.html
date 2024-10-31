@@ -9,28 +9,57 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/static/css/general.css" />
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Pizzeria del Gatito</title>
   </head>
   <body>
     <header class="header">
-      <img class="logo" alt="Pizzeria del Gatito logo" src="/static/img/logo.png" />
+      <img class="logo" alt="Pizzeria del Gatito logo" src="img/logo.png" />
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li><a class="main-nav-link" href="#">Menu</a></li>
           <li><a class="main-nav-link" href="#">Offers</a></li>
           <li><a class="main-nav-link" href="#">About Us</a></li>
           <li>
-            <a class="main-nav-link nav-cta" href="#"
-              ><ion-icon class="nav-icon" name="cart-outline"></ion-icon
-            ></a>
+            <div class="nav-cta">
+              <button class="nav-icon">
+                <ion-icon class="nav-icon" name="cart-outline"></ion-icon>
+              </button>
+              <span class="cart-num">0</span>
+            </div>
           </li>
         </ul>
       </nav>
     </header>
-
     <main>
+      <section class="section-shopping-cart">
+        <div class="cart-tab">
+          <div class="cart-top">
+            <h1>Shopping Cart</h1>
+            <button class="close-window">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <div class="cart-list">
+            <div class="cart-item">
+              <div class="item-name">Margarita</div>
+              <div class="item-info">
+                <div class="item-quantity">
+                  <span class="minus"><</span>
+                  <span>1</span>
+                  <span class="plus">></span>
+                </div>
+                <div class="item-price">&#8364;11.80</div>
+              </div>
+            </div>
+          </div>
+          <div class="shopping-cart-btn">
+            <a class="go-to-checkout" href="confirm.html">Go to Checkout</a>
+          </div>
+        </div>
+      </section>
+
       <!-- HERO SECIION -->
       <section class="section-hero">
         <div class="hero">
@@ -51,7 +80,7 @@
           </div>
           <div class="hero-img-box">
             <img
-              src="/static/img/hero.jpg"
+              src="img/hero.jpg"
               class="hero-img"
               alt="Mario and Luigi as cats"
             />
@@ -97,7 +126,7 @@
         <div id="tab1" class="container tab-content active">
           <div class="grid grid--3-cols">
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -117,7 +146,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Tonno</h3>
@@ -138,7 +167,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Diavola</h3>
@@ -162,7 +191,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -182,7 +211,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -202,7 +231,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -229,7 +258,7 @@
         <div id="tab2" class="container tab-content">
           <div class="grid grid--3-cols">
             <div class="menu-card">
-              <img src="/static/img/fries1.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/fries1.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Fries</h3>
@@ -249,7 +278,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Tonno</h3>
@@ -270,7 +299,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Diavola</h3>
@@ -294,7 +323,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -314,7 +343,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -334,7 +363,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -361,7 +390,7 @@
         <div id="tab3" class="container tab-content">
           <div class="grid grid--3-cols">
             <div class="menu-card">
-              <img src="/static/img/cola.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/cola.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Cola</h3>
@@ -381,7 +410,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Tonno</h3>
@@ -402,7 +431,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Diavola</h3>
@@ -426,7 +455,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -446,7 +475,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -466,7 +495,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -493,7 +522,7 @@
         <div id="tab4" class="container tab-content">
           <div class="grid grid--3-cols">
             <div class="menu-card">
-              <img src="/static/img/icecream.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/icecream.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Ice Cream</h3>
@@ -513,7 +542,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img2.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Tonno</h3>
@@ -534,7 +563,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img3.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Diavola</h3>
@@ -558,7 +587,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -578,7 +607,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -598,7 +627,7 @@
               </div>
             </div>
             <div class="menu-card">
-              <img src="/static/img/menu-img.jpg" alt="Pizza image" class="menu-img" />
+              <img src="img/menu-img.jpg" alt="Pizza image" class="menu-img" />
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">Margarita</h3>
@@ -640,10 +669,10 @@
             </p>
           </div>
           <div class="member-img-box">
-            <img src="/static/img/mario.png" alt="Cat Mario" class="member-img" />
+            <img src="img/mario.png" alt="Cat Mario" class="member-img" />
           </div>
           <div class="member-img-box">
-            <img src="/static/img/luigi.png" alt="Cat Luigi" class="member-img" />
+            <img src="img/luigi.png" alt="Cat Luigi" class="member-img" />
           </div>
           <div class="member-text-box">
             <h3 class="heading-tertiary">Luigi: from the back!</h3>
@@ -666,6 +695,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script src="/static/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

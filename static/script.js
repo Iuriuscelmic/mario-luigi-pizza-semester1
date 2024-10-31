@@ -9,3 +9,15 @@ function showContent(tabId) {
   const activeContent = document.getElementById(tabId);
   activeContent.classList.add("active");
 }
+
+let iconCart = document.querySelector(".nav-icon");
+let cartTab = document.querySelector(".cart-tab");
+let closeBtn = document.querySelector(".close-window");
+
+iconCart.addEventListener("click", () => {
+  cartTab.classList.add("showCart");
+});
+
+closeBtn.addEventListener("click", () => {
+  cartTab.classList.remove("showCart");
+});
