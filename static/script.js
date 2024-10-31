@@ -51,12 +51,12 @@ const addPizzaList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <div class="add-item">
-                  <form class="form" method="POST" data-pizza="${product.name}">
+                <form class="form" method="POST" data-pizza="${product.name}">
+                  <div class="add-item">
                     <div class="menu-item-price">&#8364; ${product.price}</div>
                     <button class="add-to-cart">Add to cart</button>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
               `;
       pizzaList.appendChild(newProduct);
@@ -84,12 +84,12 @@ const addSidesList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <div class="add-item">
-                  <form class="form" method="POST" data-pizza="${product.name}">
+                <form class="form" method="POST" data-pizza="${product.name}">
+                  <div class="add-item">
                     <div class="menu-item-price">&#8364; ${product.price}</div>
                     <button class="add-to-cart">Add to cart</button>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
               `;
       sidesList.appendChild(newProduct);
@@ -117,12 +117,12 @@ const addDrinksList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <div class="add-item">
-                  <form class="form" method="POST" data-pizza="${product.name}">
+                <form class="form" method="POST" data-pizza="${product.name}">
+                  <div class="add-item">
                     <div class="menu-item-price">&#8364; ${product.price}</div>
                     <button class="add-to-cart">Add to cart</button>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
               `;
       drinksList.appendChild(newProduct);
@@ -150,12 +150,12 @@ const addDesertList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <div class="add-item">
-                  <form class="form" method="POST" data-pizza="${product.name}">
+                <form class="form" method="POST" data-pizza="${product.name}">
+                  <div class="add-item">
                     <div class="menu-item-price">&#8364; ${product.price}</div>
                     <button class="add-to-cart">Add to cart</button>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
               `;
       desertList.appendChild(newProduct);
