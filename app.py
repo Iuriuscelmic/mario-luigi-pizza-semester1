@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS pizzaOrders (
 """)
 
 pizzaPrice = {
-    'Margherita': 10,
+    'Margarita': 10,
     'Pepperoni': 13,
     'Vegetarian': 12,
     'BBQ-Chicken': 14,
