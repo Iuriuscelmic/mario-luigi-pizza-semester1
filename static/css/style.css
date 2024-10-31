@@ -146,7 +146,7 @@ Medium: 12px
   position: fixed;
   inset: 0 -400px 0 auto;
   display: grid;
-  grid-template-rows: 70px 1fr 20px 70px;
+  grid-template-rows: 70px 1fr 45px 70px;
   box-shadow: 0.4rem -0.6rem 1.6rem #a1a1a1;
   transition: right 0.3s ease-in-out;
   /* background-color: rgba(0, 0, 0, 0.4); */
@@ -252,6 +252,19 @@ Medium: 12px
   font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.sub-text,
+.total-text {
+  font-size: 2.4rem;
+  font-weight: 500;
 }
 
 /********************************/

@@ -1,3 +1,20 @@
+let iconCart = document.querySelector(".nav-icon");
+let cartTab = document.querySelector(".cart-tab");
+let closeBtn = document.querySelector(".close-window");
+let addCartBtn = document.querySelector(".add-to-cart");
+let pizzaList = document.getElementById("pizza-list");
+let sidesList = document.getElementById("sides-list");
+let drinksList = document.getElementById("drinks-list");
+let desertList = document.getElementById("desert-list");
+let listCartHTML = document.querySelector(".cart-list");
+let iconCartSpan = document.querySelector(".nav-cta span");
+
+let pizzaMenu = [];
+let sidesMenu = [];
+let drinksMenu = [];
+let desertMenu = [];
+let carts = [];
+
 function showContent(tabId) {
   // Hide all tab content
   const contents = document.querySelectorAll(".tab-content");
@@ -9,19 +26,6 @@ function showContent(tabId) {
   const activeContent = document.getElementById(tabId);
   activeContent.classList.add("active");
 }
-
-let iconCart = document.querySelector(".nav-icon");
-let cartTab = document.querySelector(".cart-tab");
-let closeBtn = document.querySelector(".close-window");
-let pizzaList = document.getElementById("pizza-list");
-let sidesList = document.getElementById("sides-list");
-let drinksList = document.getElementById("drinks-list");
-let desertList = document.getElementById("desert-list");
-
-let pizzaMenu = [];
-let sidesMenu = [];
-let drinksMenu = [];
-let desertMenu = [];
 
 iconCart.addEventListener("click", () => {
   cartTab.classList.add("showCart");
@@ -38,7 +42,9 @@ const addPizzaList = () => {
       let newProduct = document.createElement("div");
       newProduct.classList.add("menu-card");
       newProduct.innerHTML = `
-              <img src="${product.image}" alt="${product.name} image" class="menu-img">
+              <img src="${product.image}" alt="${
+        product.name
+      } image" class="menu-img">
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">${product.name}</h3>
@@ -51,12 +57,16 @@ const addPizzaList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <form class="form" method="POST" data-pizza="${product.name}">
-                  <div class="add-item">
-                    <div class="menu-item-price">&#8364; ${product.price}</div>
+                <!--    <form class="form" method="POST" data-pizza="${
+                  product.name
+                }">  -->
+                <div class="add-item" data-id="${product.itemId}">
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
+                      2
+                    )}</div>
                     <button class="add-to-cart">Add to cart</button>
-                  </div>
-                </form>
+                    </div>
+                    <!--    </form>  -->
               </div>
               `;
       pizzaList.appendChild(newProduct);
@@ -170,6 +180,115 @@ const addDataToHTML = () => {
   addDesertList();
 };
 
+pizzaList.addEventListener("click", (event) => {
+  let positionClick = event.target;
+  if (positionClick.classList.contains("add-to-cart")) {
+    let product_id = positionClick.parentElement.dataset.id;
+    console.log(product_id);
+    addToCart(product_id);
+    // console.log("click");
+  }
+});
+
+const addToCart = (product_id) => {
+  let positionThisProductInCart = carts.findIndex(
+    (value) => value.product_id == product_id
+  );
+  if (carts.length <= 0) {
+    carts = [
+      {
+        product_id: product_id,
+        quantity: 1,
+      },
+    ];
+  } else if (positionThisProductInCart < 0) {
+    carts.push({
+      product_id: product_id,
+      quantity: 1,
+    });
+  } else {
+    carts[positionThisProductInCart].quantity =
+      carts[positionThisProductInCart].quantity + 1;
+  }
+  console.log(carts);
+  addCartToHTML();
+};
+
+const addCartToHTML = () => {
+  listCartHTML.innerHTML = "";
+  let totalQuantity = 0;
+  if (carts.length > 0) {
+    carts.forEach((cart) => {
+      totalQuantity = totalQuantity + cart.quantity;
+      let newCart = document.createElement("div");
+      newCart.classList.add("cart-item");
+      newCart.dataset.id = cart.product_id;
+      // console.log(pizzaMenu);    // FOR DEBUGGING
+      let positionProduct = pizzaMenu.findIndex(
+        (value) => value.itemId == cart.product_id
+      );
+      console.log(positionProduct);
+      let info = pizzaMenu[positionProduct];
+      newCart.innerHTML = `
+              <div class="item-name">${info.name}</div>
+              <div class="item-info">
+                <div class="item-quantity">
+                  <span class="minus">-</span>
+                  <span>${cart.quantity}</span>
+                  <span class="plus">+</span>
+                </div>
+                <div class="item-price">&#8364;${(
+                  info.price * cart.quantity
+                ).toFixed(2)}</div>
+              </div>`;
+      listCartHTML.appendChild(newCart);
+    });
+  }
+  iconCartSpan.innerText = totalQuantity;
+};
+
+listCartHTML.addEventListener("click", (event) => {
+  let positionClick = event.target;
+  if (
+    positionClick.classList.contains("minus") ||
+    positionClick.classList.contains("plus")
+  ) {
+    let product_id =
+      positionClick.parentElement.parentElement.parentElement.dataset.id;
+    // console.log(product_id);
+    let type = "minus";
+    if (positionClick.classList.contains("plus")) {
+      type = "plus";
+    }
+    changeQuantity(product_id, type);
+  }
+});
+
+const changeQuantity = (product_id, type) => {
+  let positionItemInCart = carts.findIndex(
+    (value) => value.product_id == product_id
+  );
+  if (positionItemInCart >= 0) {
+    switch (type) {
+      case "plus":
+        carts[positionItemInCart].quantity =
+          carts[positionItemInCart].quantity + 1;
+        break;
+
+      default:
+        let valueChange = (carts[positionItemInCart].quantity =
+          carts[positionItemInCart].quantity - 1);
+        if (valueChange > 0) {
+          carts[positionItemInCart].quantity = valueChange;
+        } else {
+          carts.splice(positionItemInCart, 1);
+        }
+        break;
+    }
+  }
+  addCartToHTML();
+};
+
 const initApp = () => {
   fetch("/static/products.json")
     .then((response) => response.json())
@@ -187,30 +306,30 @@ const initApp = () => {
 };
 initApp();
 
-const form = document.querySelectorAll("form"); //get all forms by class
-form.forEach((form) => {
-  //for each form do this
-  form.addEventListener("submit", function (event) {
-    // create an event listener
-    event.preventDefault(); //prevent default, meaning dont redirect
-    const pizzaType = this.dataset.pizza; //this = current context in which the code is running
-    const formData = new FormData(this); //create neew form data object
-    formData.append("pizza", pizzaType);
+// const form = document.querySelectorAll("form"); //get all forms by class
+// form.forEach((form) => {
+//   //for each form do this
+//   form.addEventListener("submit", function (event) {
+//     // create an event listener
+//     event.preventDefault(); //prevent default, meaning dont redirect
+//     const pizzaType = this.dataset.pizza; //this = current context in which the code is running
+//     const formData = new FormData(this); //create neew form data object
+//     formData.append("pizza", pizzaType);
 
-    fetch("/submit_order", {
-      //send data using fetch
-      method: "POST",
-      body: formData,
-    })
-      .then((data) => {
-        console.log("order submitted for", pizzaType, ":", data); //data = information from the form
-        alert(pizzaType + " added to the cart"); //notify the user
-      })
-      .catch((error) => {
-        console.error("error:", error);
-      });
-  });
-});
-function redirect() {
-  location.href = "/confirm";
-}
+//     fetch("/submit_order", {
+//       //send data using fetch
+//       method: "POST",
+//       body: formData,
+//     })
+//       .then((data) => {
+//         console.log("order submitted for", pizzaType, ":", data); //data = information from the form
+//         alert(pizzaType + " added to the cart"); //notify the user
+//       })
+//       .catch((error) => {
+//         console.error("error:", error);
+//       });
+//   });
+// });
+// function redirect() {
+//   location.href = "/confirm";
+// }
