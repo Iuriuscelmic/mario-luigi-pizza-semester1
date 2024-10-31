@@ -21,3 +21,32 @@ iconCart.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   cartTab.classList.remove("showCart");
 });
+
+
+
+const form = document.querySelectorAll('form') //get all forms by class 
+form.forEach(form => { //for each form do this
+  form.addEventListener('submit',function(event) {  // create an event listener 
+      event.preventDefault(); //prevent default, meaning dont redirect
+      const pizzaType = this.dataset.pizza; //this = current context in which the code is running
+      const formData = new FormData(this); //create neew form data object 
+      formData.append('pizza' , pizzaType);
+
+      fetch('/submit_order' , { //send data using fetch
+          method:'POST',
+          body:formData
+      })
+      .then(data=>{
+          console.log('order submitted for' ,pizzaType, ':' , data); //data = information from the form 
+          alert(pizzaType + ' added to the cart') ; //notify the user
+      })
+      .catch(error=> {
+          console.error('error:', error);
+      })
+
+  })
+})
+function redirect()
+{
+location.href = '/confirm'
+}

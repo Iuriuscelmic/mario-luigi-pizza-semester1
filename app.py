@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS pizzaOrders (
 """)
 
 pizzaPrice = {
-    'Margherita': 10,
+    'Margarita': 10,
     'Pepperoni': 13,
     'Vegetarian': 12,
     'BBQ-Chicken': 14,
@@ -53,8 +53,8 @@ def menu():
     table_nr = request.args.get('id')
     session['tableNr'] = table_nr
     session['order'] = {}
-    # return render_template('index.html', table=session['tableNr'])
     return render_template('index.html')
+    #return render_template('order.html', table=session['tableNr'])
 
 @app.route("/submit_order", methods=['POST'])
 def submit():
