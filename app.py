@@ -53,7 +53,8 @@ def menu():
     table_nr = request.args.get('id')
     session['tableNr'] = table_nr
     session['order'] = {}
-    return render_template('menu.html', table=session['tableNr'])
+    # return render_template('index.html', table=session['tableNr'])
+    return render_template('index.html')
 
 @app.route("/submit_order", methods=['POST'])
 def submit():
