@@ -74,7 +74,8 @@ body {
 
 .grid {
   display: grid;
-  gap: 9.6rem;
+  /* gap: 9.6rem; */
+  gap: 3.2rem;
 }
 
 .grid--center-v {
@@ -87,6 +88,10 @@ body {
 
 .grid--3-cols {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .heading-primary,
@@ -132,7 +137,7 @@ body {
   font-weight: 600;
   padding: 1.6rem 3.2rem;
   border-radius: 9px;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 }
 
 .btn--full:link,
