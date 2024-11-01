@@ -97,7 +97,9 @@ Medium: 12px
 } */
 
 .nav-icon {
-  font-size: 2.4rem;
+  /* font-size: 2.4rem; */
+  height: 2.4rem;
+  width: 2.4rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -321,26 +323,35 @@ Medium: 12px
   gap: 4.8rem;
 }
 
-ion-icon {
+/* ion-icon {
   font-size: 4.4rem;
-}
-
-.tab {
-  color: var(--accent);
-  background-color: var(--white);
-  border: none;
-  cursor: pointer;
+} */
+.tab ion-icon {
+  /* font-size: 4.4rem; */
+  height: 4.4rem;
+  width: 4.4rem;
   padding: 0.8rem;
-
+  border-radius: 50%;
+  color: var(--primary);
+  background-color: var(--white);
+  cursor: pointer;
   margin: 0;
   outline: none;
-  border-radius: 50%;
   transition: all 0.3s;
 }
 
-.tab:hover {
+.tab {
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  color: var(--accent);
+  box-shadow: 0 0.8rem 1.6rem 0 #ddddddbb;
+  margin-bottom: 2.4rem;
+}
+
+.tab ion-icon:hover {
   background-color: var(--primaryTint);
-  color: var(--primary);
+  color: var(--accent);
   transform: rotate(30deg);
 }
 
@@ -353,12 +364,12 @@ ion-icon {
 }
 
 .menu-tag {
-  display: inline-block;
+  /* display: inline-block; */
   /* padding: 0.8rem; */
-  border-radius: 150px;
+  /* border-radius: 150px;
   color: var(--accent);
   box-shadow: 0 0.8rem 1.6rem 0 #ddddddbb;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2.4rem; */
 }
 
 .menu-card {
@@ -567,4 +578,93 @@ ion-icon {
 .offer-bonus h3 {
   font-size: 2rem;
   margin-bottom: 2.4rem;
+}
+
+/********************************/
+/* SIGN UP SECTION */
+/********************************/
+
+.section-cta {
+  /* background-color: var(--white); */
+  padding: 9.6rem 0;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: var(--primaryShade);
+  box-shadow: 0 2.4rem 4.8rem 0 #9b9a9ae8;
+  border-radius: 11px;
+  background-image: linear-gradient(to right bottom, #ee9d56, #df5605);
+  overflow: hidden;
+}
+
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #462307;
+}
+
+.cta .heading-secondary {
+  color: #462307;
+  margin-bottom: 3.2rem;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta-img-box {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(253, 135, 33, 0.2),
+      rgba(223, 85, 5, 0.2)
+    ),
+    url("/static/img/signup.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: var(--primaryTint);
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+.cta-form button {
+  background-color: #462307;
+  color: var(--primaryTint);
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.cta-form button:hover {
+  background-color: #fff;
+  color: #462307;
 }

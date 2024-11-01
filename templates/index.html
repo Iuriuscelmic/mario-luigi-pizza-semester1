@@ -23,14 +23,21 @@
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li><a class="main-nav-link" href="#">Menu</a></li>
-          <li><a class="main-nav-link" href="#">Offers</a></li>
           <li><a class="main-nav-link" href="#">About Us</a></li>
+          <li><a class="main-nav-link" href="#">Offers</a></li>
           <li>
             <div class="nav-cta">
               <button class="nav-icon">
                 <ion-icon class="nav-icon" name="cart-outline"></ion-icon>
               </button>
               <span class="cart-num">0</span>
+            </div>
+          </li>
+          <li>
+            <div class="nav-cta">
+              <button class="nav-icon">
+                <ion-icon class="nav-icon" name="person-outline"></ion-icon>
+              </button>
             </div>
           </li>
         </ul>
@@ -312,6 +319,61 @@
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+      <!-- OFFERS SECTION END -->
+
+      <!-- SIGN UP SECTION -->
+      <section class="section-cta">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text-box">
+              <h2 class="heading-secondary">Get your first pizza for free!</h2>
+              <p class="cta-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
+                natus illo tenetur fugiat, repellendus aut, iusto asperiores
+                aspernatur
+              </p>
+
+              <form class="cta-form" action="#">
+                <div>
+                  <label for="full-name">Full Name</label>
+                  <input
+                    id="full-name"
+                    type="text"
+                    placeholder="Peach Princess"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="email">Email Address</label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="peachprincess@castle.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="select-where">Where did you hear from us?</label>
+                  <select name="" id="select-where" required>
+                    <option value="">Please choose one option:</option>
+                    <option value="friends">Friends and Family</option>
+                    <option value="youtube">YouTube Video</option>
+                    <option value="tiktok">Tik Tok</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+                <button class="btn">Sign up now</button>
+              </form>
+            </div>
+            <div
+              class="cta-img-box"
+              role="img"
+              aria-label="woman eating pizza"
+            ></div>
           </div>
         </div>
       </section>
