@@ -216,6 +216,37 @@ def get_beep_signal():
         return jsonify({"beep": True})
     return jsonify({"beep": False})
 
+@app.route('/login',methods =["POST","GET"])
+def login():# login code  
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if not username or not password: 
+            flash("Username and password required" , "error")
+            return redirect(url_for('login'))
+        try:
+            cursor.execute("SELECT password_hashed FROM accounts WHERE username = ?",(username,)) 
+            result = cursor.fetchone()
+
+            if result is None:
+                print("No account found")
+                return "No account found"
+            
+            stored_hashed = result[0]
+            if verify_password(stored_hashed.encode('utf-8'),password):
+                   session['logged_in'] =True  # include redirect url for what is should be
+                   session['client_name'] = username
+                   return redirect(url_for('menu'))
+            else :
+                print("Incorrect password")
+                flash("Username or password is incorrect","error")
+                return redirect(url_for('login'))
+        except sqlite3.Error as e:
+            print("sql error", e)
+        
+    return render_template('login.html')
+
+
 @app.route('/signup' , methods = ['POST','GET'])
 def signup():
     if request.method == 'POST':
@@ -228,13 +259,31 @@ def signup():
             flash("Passwords does not match" , "error")
             return redirect(url_for('signup'))
         try : 
+            cursor.execute("SELECT * FROM accounts WHERE username =?",(username,))
+            existing_user = cursor.fetchone()
+            if existing_user:
+                flash("Username is already taken.Please choose a different one !", "error")
+                return redirect(url_for('signup'))
+            
             password_hashed = password_hashing(password)
             cursor.execute("INSERT INTO accounts (username,password_hashed,email) VALUES (?,?,?)",(username,password_hashed,email))
             connection.commit()
+            flash("account created succesfully !")
+            return redirect(url_for('login'))
         except sqlite3.Error as e:
             print("SQL error" ,e)
             flash("Something went wrong")
 
     return render_template("signup.html")
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)  # Remove logged_in from session
+    return redirect(url_for('menu'))
+
+@app.route('/offers')
+def vouchers():
+        return render_template("offers.html")
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
