@@ -8,6 +8,7 @@ let drinksList = document.getElementById("drinks-list");
 let desertList = document.getElementById("desert-list");
 let listCartHTML = document.querySelector(".cart-list");
 let iconCartSpan = document.querySelector(".nav-cta span");
+let checkOut = document.querySelector(".go-to-checkout");
 
 let pizzaMenu = [];
 let sidesMenu = [];

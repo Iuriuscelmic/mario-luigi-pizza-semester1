@@ -59,6 +59,7 @@ Default: 9px
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
@@ -66,6 +67,7 @@ body {
   line-height: 1;
   font-weight: 400;
   color: var(--greylight);
+  overflow-x: hidden;
 }
 
 /********************************/
@@ -181,5 +183,6 @@ body {
 }
 
 .margin-auto {
-  margin-top: auto;
+  /* margin-top: auto; */
+  align-content: space-between;
 }

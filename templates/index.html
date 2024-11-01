@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="/static/css/general.css" />
     <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/queries.css" />
     <title>Pizzeria del Gatito</title>
   </head>
   <body>
@@ -44,6 +45,10 @@
           </li>
         </ul>
       </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
     </header>
     <main>
       <section class="section-shopping-cart">
@@ -60,7 +65,8 @@
             <span class="total-text">&#8364;100</span>
           </div>
           <div class="shopping-cart-btn">
-            <a class="go-to-checkout" href="confirm.html">Go to Checkout</a>
+            <!-- <a class="go-to-checkout" href="confirm.html">Go to Checkout</a> -->
+            <button class="go-to-checkout">Go to Checkout</button>
           </div>
         </div>
       </section>
@@ -263,7 +269,7 @@
               </div>
             </div>
             <div class="offer-bonus">
-              <h3>Sign up for Bonuses!</h3>
+              <h3 class="heading-tertiary">Sign up for Bonuses!</h3>
               <ul class="list">
                 <li class="list-item">
                   <ion-icon

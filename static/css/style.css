@@ -57,6 +57,7 @@ Medium: 12px
   background-color: var(--primaryTint);
   height: 9.6rem;
   padding: 0 4.8rem;
+  position: relative;
 }
 
 .logo {
@@ -137,12 +138,29 @@ Medium: 12px
   right: -2px;
 }
 
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
 /********************************/
 /* SHOPPING CART SECTION */
 /********************************/
 
 .cart-tab {
-  width: 40rem;
+  /* width: 40rem; */
+  width: 400px;
   background-color: #fff;
   color: var(--greyDark);
   position: fixed;
@@ -300,8 +318,8 @@ Medium: 12px
 }
 
 .hero-img {
-  /* width: 100%; */
-  height: 550px;
+  width: 75%;
+  /* height: 550px; */
 }
 
 /********************************/
@@ -475,7 +493,7 @@ Medium: 12px
 }
 
 .member-description {
-  font-size: 1.8em;
+  font-size: 1.8rem;
 }
 
 .member-img-box {
@@ -521,6 +539,7 @@ Medium: 12px
   padding: 3.2rem;
   display: flex;
   flex-direction: column;
+  align-content: space-between;
 }
 
 .offer-header {
