@@ -15,11 +15,13 @@
   </head>
   <body>
     <header class="header">
-      <img
-        class="logo"
-        alt="Pizzeria del Gatito logo"
-        src="/static/img/logo.png"
-      />
+      <a href="#">
+        <img
+          class="logo"
+          alt="Pizzeria del Gatito logo"
+          src="/static/img/logo.png"
+        />
+      </a>
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li><a class="main-nav-link" href="#">Menu</a></li>
@@ -249,12 +251,14 @@
                 <div class="offer-header">
                   <h3 class="item-title">1 + 1 = 3 Pizzas!</h3>
                 </div>
-                <p class="menu-item-description">
-                  Sign in, buy any pizza, and get a second one completely for
-                  free!
-                </p>
-                <div class="add-offer">
-                  <button class="get-offer">Get Offer!</button>
+                <div class="margin-auto">
+                  <p class="menu-item-description">
+                    Sign in, buy any pizza, and get a second one completely for
+                    free!
+                  </p>
+                  <div class="add-offer">
+                    <button class="get-offer">Get Offer!</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -377,7 +381,86 @@
           </div>
         </div>
       </section>
+      <!-- SIGN UP SECTION END -->
+
+      <!-- OFFERS SECTION END -->
     </main>
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">
+            <img
+              class="logo"
+              alt="Pizzeria del Gatito logo"
+              src="/static/img/logo.png"
+            />
+          </a>
+          <ul class="social-links">
+            <li>
+              <a class="footer-links" href="#"
+                ><ion-icon class="social-icon" name="logo-tiktok"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-links" href="#"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-links" href="#"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+          </ul>
+          <p class="copyright">
+            Copyright &copy; 2024 by DIMBL5 Inc. All rights reserved
+          </p>
+        </div>
+        <div class="address-col">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              Rachelsmolen 1, 5612 MA Eindhoven, Netherlands
+            </p>
+            <p>
+              <a class="footer-links" href="tel:+31610694748">+31-610-694-748</a
+              ><br />
+              <a class="footer-links" href="mailto:marioluigi@mammamia.com"
+                >marioluigi@mammamia.com</a
+              >
+            </p>
+          </address>
+        </div>
+        <div class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a class="footer-links" href="#">Create account</a></li>
+            <li><a class="footer-links" href="#">Sign In</a></li>
+            <li><a class="footer-links" href="#">iOS App</a></li>
+            <li><a class="footer-links" href="#">Android App</a></li>
+          </ul>
+        </div>
+        <div class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-links" href="#">About us</a>
+            </li>
+            <li><a class="footer-links" href="#">For Business</a></li>
+            <li><a class="footer-links" href="#">Partners</a></li>
+            <li><a class="footer-links" href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-links" href="#">Recipe directory</a></li>
+            <li><a class="footer-links" href="#">Help Center</a></li>
+            <li><a class="footer-links" href="#">Privacy & Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
