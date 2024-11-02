@@ -61,7 +61,7 @@ Medium: 12px
 }
 
 .logo {
-  height: 7rem;
+  height: 5rem;
 }
 
 /********************************/
@@ -713,7 +713,6 @@ Medium: 12px
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 4rem;
-  margin-top: 1.8rem;
   color: #555;
 }
 
@@ -725,6 +724,7 @@ Medium: 12px
 .social-links {
   display: flex;
   gap: 2.4rem;
+  margin: 1.2rem auto;
 }
 
 .social-icon {
