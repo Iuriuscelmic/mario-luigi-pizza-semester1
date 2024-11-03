@@ -1,7 +1,6 @@
 let iconCart = document.querySelector(".nav-icon");
 let cartTab = document.querySelector(".cart-tab");
 let closeBtn = document.querySelector(".close-window");
-let addCartBtn = document.querySelector(".add-to-cart");
 let pizzaList = document.getElementById("pizza-list");
 let sidesList = document.getElementById("sides-list");
 let drinksList = document.getElementById("drinks-list");
@@ -58,16 +57,12 @@ const addPizzaList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <!--    <form class="form" method="POST" data-pizza="${
-                  product.name
-                }">  -->
                 <div class="add-item" data-id="${product.itemId}">
                     <div class="menu-item-price">&#8364; ${product.price.toFixed(
                       2
                     )}</div>
                     <button class="add-to-cart">Add to cart</button>
                     </div>
-                    <!--    </form>  -->
               </div>
               `;
       pizzaList.appendChild(newProduct);
@@ -187,7 +182,6 @@ pizzaList.addEventListener("click", (event) => {
     let product_id = positionClick.parentElement.dataset.id;
     console.log(product_id);
     addToCart(product_id);
-    // console.log("click");
   }
 });
 
@@ -224,7 +218,6 @@ const addCartToHTML = () => {
       let newCart = document.createElement("div");
       newCart.classList.add("cart-item");
       newCart.dataset.id = cart.product_id;
-      // console.log(pizzaMenu);    // FOR DEBUGGING
       let positionProduct = pizzaMenu.findIndex(
         (value) => value.itemId == cart.product_id
       );
@@ -256,7 +249,6 @@ listCartHTML.addEventListener("click", (event) => {
   ) {
     let product_id =
       positionClick.parentElement.parentElement.parentElement.dataset.id;
-    // console.log(product_id);
     let type = "minus";
     if (positionClick.classList.contains("plus")) {
       type = "plus";
@@ -289,6 +281,24 @@ const changeQuantity = (product_id, type) => {
   }
   addCartToHTML();
 };
+
+checkOut.addEventListener("click", () => {
+  fetch("/submit_cart", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ carts: carts }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Cart submitted:", data);
+      location.href = "/confirm";
+    })
+    .catch((error) => {
+      console.error("Error submitting cart:", error);
+    });
+});
 
 const initApp = () => {
   fetch("/static/products.json")

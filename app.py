@@ -1,12 +1,21 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 import sqlite3
 import time
+import os
 
 app = Flask(__name__)
 
 # Load secret key from a file
-with open("sessionkey.txt", "r") as file:
-    SESSIONKEY = file.read()
+SECRET_KEY_PATH = "sessionkey.txt"
+if not os.path.exists(SECRET_KEY_PATH):
+    raise FileNotFoundError(f"Secret key file '{SECRET_KEY_PATH}' not found.")
+
+with open(SECRET_KEY_PATH, "r") as file:
+    SESSIONKEY = file.read().strip()
+
+if not SESSIONKEY:
+    raise ValueError("Session key cannot be empty.")
+
 app.secret_key = SESSIONKEY
 
 DATABASE = 'pizza_order.db'
@@ -26,13 +35,37 @@ CREATE TABLE IF NOT EXISTS pizzaOrders (
 )
 """)
 
+# Price mapping for all products
 pizzaPrice = {
-    'Margarita': 10,
-    'Pepperoni': 13,
-    'Vegetarian': 12,
-    'BBQ-Chicken': 14,
-    'Hawaiian': 16
+    'Margherita': 11.8,
+    'Tonno': 14.0,
+    'Diavola': 13.8,
+    'Pepperoni': 13.8,
+    'Garlic Bread': 5.0,
+    'Bruschetta': 6.0,
+    'Coke': 3.0,
+    'Sprite': 3.0,
+    'Ice Cream': 4.0,
+    'Tiramisu': 5.0
 }
+
+# Map product IDs to product names
+def get_product_name_by_id(product_id):
+    product_mapping = {
+        '1': 'Margherita',
+        '2': 'Tonno',
+        '3': 'Diavola',
+        '4': 'Pepperoni',
+        '5': 'Garlic Bread',
+        '6': 'Bruschetta',
+        '7': 'Coke',
+        '8': 'Sprite',
+        '9': 'Ice Cream',
+        '10': 'Tiramisu'
+    }
+    product_name = product_mapping.get(str(product_id), 'Unknown Product')
+    print(f"Mapping product_id {product_id} to product_name '{product_name}'")
+    return product_name
 
 # Variable to track beep signal
 beep_signal = False
@@ -45,6 +78,7 @@ def index():
 def table_number():
     if request.method == 'POST':
         table_nr = request.form.get('table_nr')
+        print(f"Table number received: {table_nr}")
         return redirect(url_for('menu', id=table_nr))
     return render_template('table_number.html')
 
@@ -53,45 +87,70 @@ def menu():
     table_nr = request.args.get('id')
     session['tableNr'] = table_nr
     session['order'] = {}
+    print(f"Menu accessed for table number: {table_nr}")
     return render_template('index.html')
-    #return render_template('order.html', table=session['tableNr'])
 
-@app.route("/submit_order", methods=['POST'])
-def submit():
-    pizza_type = request.form.get('pizza')
+@app.route("/submit_cart", methods=['POST'])
+def submit_cart():
+    cart_data = request.get_json()
+    print(f"Received cart data: {cart_data}")
+    carts = cart_data.get('carts', [])
+    if not carts:
+        print("No items in the cart.")
     if 'order' not in session:
         session['order'] = {}
-
+    
     order = session['order']
-    order[pizza_type] = order.get(pizza_type, 0) + 1
+    for item in carts:
+        product_id = item.get('product_id')
+        quantity = item.get('quantity', 0)
+        if not product_id or quantity <= 0:
+            print(f"Invalid item in cart: {item}")
+            continue
+        product_name = get_product_name_by_id(product_id)
+        order[product_name] = order.get(product_name, 0) + quantity
+        print(f"Added {quantity} x {product_name} to order.")
+    
     session['order'] = order
-    return jsonify({'message': f'{pizza_type} has been added to your cart!'})
+    print(f"Updated session order: {session['order']}")
+    return jsonify({'message': 'Cart has been submitted'})
 
 @app.route("/confirm")
 def confirm():
     order = session.get('order', {})
-    total_amount = sum(quantity * pizzaPrice[pizza] for pizza, quantity in order.items())
-    return render_template("confirm.html", order=order, table=session['tableNr'], total=total_amount)
+    print(f"Session order on confirm: {order}")
+    # Calculate total amount
+    total_amount = sum(quantity * pizzaPrice.get(pizza, 0) for pizza, quantity in order.items())
+    print(f"Total amount: {total_amount} EUR")
+    return render_template("confirm.html", order=order, table=session.get('tableNr'), total=total_amount, pizzaPrice=pizzaPrice)
 
 @app.route('/thankyou')
 def thankyou():
     order = session.get('order', {})
-    tableNr = session['tableNr']
+    tableNr = session.get('tableNr')
     time_cur = time.strftime('%H:%M:%S')
-
+    print(f"Placing order for table {tableNr} at {time_cur}: {order}")
+    
+    if not order or not tableNr:
+        print("Order or table number missing.")
+        return redirect(url_for('index'))
+    
     # Generate a new orderId
     cursor.execute("SELECT MAX(orderId) FROM pizzaOrders")
     last_order_id = cursor.fetchone()[0]
     new_order_id = (last_order_id + 1) if last_order_id else 1
-
+    print(f"New order ID: {new_order_id}")
+    
     for pizzaType, amount in order.items():
         cursor.execute(
             "INSERT INTO pizzaOrders (orderId, tablenr, pizza_type, quantity, time) VALUES (?, ?, ?, ?, ?)",
             (new_order_id, tableNr, pizzaType, amount, time_cur)
         )
-
+        print(f"Inserted into DB: OrderID={new_order_id}, Table={tableNr}, Pizza={pizzaType}, Quantity={amount}, Time={time_cur}")
+    
     session.pop('order', None)
     connection.commit()
+    print("Order saved to database and session cleared.")
     return render_template('thankyou.html')
 
 @app.route('/dashboard')
@@ -113,6 +172,7 @@ def dashboard():
                 'order_items': []
             }
         orders[order_id]['order_items'].append((pizza_type, quantity))
+    print(f"Dashboard orders: {orders}")
     return render_template('dashboard.html', orders=orders.values())
 
 @app.route('/validate_order', methods=['POST'])
@@ -123,8 +183,9 @@ def validate_order():
     cursor.execute("DELETE FROM pizzaOrders WHERE orderId = ?", (order_id,))
     connection.commit()
 
-    # this sets the beep signal for arduino_client.py
+    # This sets the beep signal for arduino_client.py
     beep_signal = True
+    print("Order validated and beep signal set.")
     return redirect(url_for('dashboard'))
 
 @app.route('/get_beep_signal')
@@ -133,6 +194,7 @@ def get_beep_signal():
     # Respond with the beep signal status and reset it
     if beep_signal:
         beep_signal = False
+        print("Beep signal sent.")
         return jsonify({"beep": True})
     return jsonify({"beep": False})
 
