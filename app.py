@@ -236,7 +236,7 @@ def login():# login code
             if verify_password(stored_hashed.encode('utf-8'),password):
                    session['logged_in'] =True  # include redirect url for what is should be
                    session['client_name'] = username
-                   return redirect(url_for('menu'))
+                   return redirect(url_for('menu',id=session['tableNr']))
             else :
                 print("Incorrect password")
                 flash("Username or password is incorrect","error")
@@ -279,7 +279,7 @@ def signup():
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)  # Remove logged_in from session
-    return redirect(url_for('menu'))
+    return redirect(url_for('menu',id=session['tableNr']))
 
 @app.route('/offers')
 def vouchers():
