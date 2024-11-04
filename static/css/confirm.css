@@ -1,0 +1,221 @@
+:root {
+  /* --primary: #e67e22; */
+  --primary: #961e0b;
+  --primaryShade: #df5605;
+  --primaryTint: #fdf2e9;
+  /* --accent: #0b3c49; */
+  --accent: #336626;
+  --greyLight: #555;
+  --greyDark: #333;
+  --white: #fff;
+  --black: #000;
+}
+
+body {
+  background-color: var(--primaryTint);
+  min-height: 100vh;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.confirm {
+  margin-top: 3.2rem;
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.order-info {
+  width: 70rem;
+  /* max-width: 70rem; */
+  background-color: #fff;
+  padding: 3.2rem;
+  border-radius: 12px;
+  box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.185);
+  margin-bottom: 2rem;
+}
+
+.order-item {
+  display: flex;
+  border-top: 1px solid #ddd;
+  border-bottom: 0.5px solid #ddd;
+}
+
+.order-price,
+.order-name {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #555;
+  padding: 1.6rem 1.6rem;
+}
+
+.payment-info {
+  width: 70rem;
+  /* max-width: 70rem; */
+  background-color: #fff;
+  padding: 3.2rem;
+  border-radius: 12px;
+  box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.185);
+}
+
+.credit-info {
+  display: flex;
+  align-items: center;
+}
+
+.icon ion-icon {
+  height: 3.2rem;
+  width: 3.2rem;
+  margin-right: 2rem;
+}
+
+.cart-info {
+  font-size: 1.8rem;
+  color: #777;
+}
+
+.edit {
+  margin-left: auto;
+  border: none;
+  background-color: #ddd;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.edit:hover,
+.edit:active {
+  background-color: #bbb;
+}
+
+.pay-order {
+  width: 35rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.185);
+  margin-bottom: 2rem;
+  align-self: flex-start;
+}
+
+.mr-bt {
+  margin-bottom: 2rem;
+}
+
+.pay-card {
+  padding: 3.2rem 3.2rem 1.6rem 3.2rem;
+}
+
+hr {
+  height: 4px;
+  background-color: var(--primaryTint);
+  border: none;
+}
+
+.pay-card-btn {
+  margin-bottom: 1rem;
+}
+
+.pay-card-btn,
+.pay-cash-btn {
+  width: 100%;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  padding: 1.6rem 0;
+  border-radius: 9px;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.pay-card-btn:hover,
+.pay-card-btn:active {
+  background-color: #336626;
+}
+
+.pay-cash-btn:hover,
+.pay-cash-btn:active {
+  background-color: #961e0b;
+}
+
+.promotion {
+  padding: 2.4rem;
+}
+
+.promo-icon ion-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  margin-right: 1.6rem;
+}
+
+.promo-info {
+  font-size: 1.6rem;
+}
+
+.promo-right {
+  height: 2rem;
+  width: 2rem;
+  margin-left: auto;
+}
+
+.pay-title,
+.total {
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-bottom: 1.8rem;
+}
+
+.pay-total {
+  padding: 2.4rem;
+}
+
+.confirm-subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.confirm-subtotal span {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.fees {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.fees span {
+  font-size: 1.6rem;
+}
+
+.fees ion-icon {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.confirm-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.confirm-total span {
+  font-size: 2rem;
+  font-weight: 600;
+}
