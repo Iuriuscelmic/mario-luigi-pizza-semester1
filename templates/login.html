@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+        form {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+
+
+
+    .flash-messages {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+    }
+
+    .flash-message {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .flash-message.error {
+        background-color: #e74c3c;
+    }
+
+    .flash-message.success {
+        background-color: #2ecc71;
+    }
+
+    </style>
+</head>
+<body>
+
+<form action="{{ url_for('login') }}" method="post">
+    <h2>Login</h2>
+    <div class = "flash-mesasges">
+        {%with messages = get_flashed_messages(with_categories=True) %}
+            {%if messages %}
+                {% for category,message in messages %}
+                    <div class = "flash-mesasge {{category}}">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Log In</button>
+
+    <div class="signup-link">
+        <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+    </div>
+</form>
+
+</body>
+</html>

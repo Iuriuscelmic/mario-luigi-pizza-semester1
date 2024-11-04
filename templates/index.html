@@ -39,7 +39,11 @@
           <li>
             <div class="nav-cta">
               <button class="nav-icon">
-                <ion-icon class="nav-icon" name="person-outline"></ion-icon>
+                {% if session.get('logged_in')%}
+                  <a href="/logout"><p>logout</p></a>
+                {% else %}
+                <a href="/login"><ion-icon class="nav-icon" name="person-outline"></ion-icon></a>
+                {% endif %}
               </button>
             </div>
           </li>
@@ -84,9 +88,11 @@
               nisi laudantium aliquid esse, illo nihil consequatur sunt
               aspernatur architecto temporibus?
             </p>
-            <a href="#" class="btn btn--full margin-right-sm"
-              >Become a member</a
-            >
+            {% if session.get('logged_in') %}
+              <a href = "/offers" class ="btn btn--full margin-right-sm">View Offers</a>
+            {% else %}
+            <a href="/signup" class="btn btn--full margin-right-sm">Become a member</a>
+            {% endif %}
             <a href="#" class="btn btn--outline">Order &darr;</a>
           </div>
           <div class="hero-img-box">

@@ -1,7 +1,17 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for, session
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session,flash
 import sqlite3
 import time
 import os
+import bcrypt 
+
+def password_hashing(plain_password): #function to hash passwords
+    salt = bcrypt.gensalt(rounds = 10)
+    hashed_password = bcrypt.hashpw(plain_password.encode('utf-8'),salt).decode('utf-8')
+    return hashed_password
+
+def verify_password(stored_hash, entered_password): #function to verify the password (unhash)
+    return bcrypt.checkpw(entered_password.encode('utf-8'), stored_hash)
+
 
 app = Flask(__name__)
 
@@ -35,7 +45,15 @@ CREATE TABLE IF NOT EXISTS pizzaOrders (
 )
 """)
 
-# Price mapping for all products
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS accounts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username INTEGER,
+    password_hashed TEXT,
+    email TEXT
+)
+""")
+
 pizzaPrice = {
     'Margherita': 11.8,
     'Tonno': 14.0,
@@ -198,5 +216,74 @@ def get_beep_signal():
         return jsonify({"beep": True})
     return jsonify({"beep": False})
 
+@app.route('/login',methods =["POST","GET"])
+def login():# login code  
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if not username or not password: 
+            flash("Username and password required" , "error")
+            return redirect(url_for('login'))
+        try:
+            cursor.execute("SELECT password_hashed FROM accounts WHERE username = ?",(username,)) 
+            result = cursor.fetchone()
+
+            if result is None:
+                print("No account found")
+                return "No account found"
+            
+            stored_hashed = result[0]
+            if verify_password(stored_hashed.encode('utf-8'),password):
+                   session['logged_in'] =True  # include redirect url for what is should be
+                   session['client_name'] = username
+                   return redirect(url_for('menu',id=session['tableNr']))
+            else :
+                print("Incorrect password")
+                flash("Username or password is incorrect","error")
+                return redirect(url_for('login'))
+        except sqlite3.Error as e:
+            print("sql error", e)
+        
+    return render_template('login.html')
+
+
+@app.route('/signup' , methods = ['POST','GET'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username'] 
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        email = request.form['email']
+
+        if password != confirm_password : 
+            flash("Passwords does not match" , "error")
+            return redirect(url_for('signup'))
+        try : 
+            cursor.execute("SELECT * FROM accounts WHERE username =?",(username,))
+            existing_user = cursor.fetchone()
+            if existing_user:
+                flash("Username is already taken.Please choose a different one !", "error")
+                return redirect(url_for('signup'))
+            
+            password_hashed = password_hashing(password)
+            cursor.execute("INSERT INTO accounts (username,password_hashed,email) VALUES (?,?,?)",(username,password_hashed,email))
+            connection.commit()
+            flash("account created succesfully !")
+            return redirect(url_for('login'))
+        except sqlite3.Error as e:
+            print("SQL error" ,e)
+            flash("Something went wrong")
+
+    return render_template("signup.html")
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)  # Remove logged_in from session
+    return redirect(url_for('menu',id=session['tableNr']))
+
+@app.route('/offers')
+def vouchers():
+        return render_template("offers.html")
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
