@@ -121,7 +121,7 @@ def confirm():
     print(f"Session order on confirm: {order}")
     # Calculate total amount
     total_amount = sum(quantity * pizzaPrice.get(pizza, 0) for pizza, quantity in order.items())
-    print(f"Total amount: {total_amount} EUR")
+    print(f"Total amount: {total_amount:.2f} EUR")
     return render_template("confirm.html", order=order, table=session.get('tableNr'), total=total_amount, pizzaPrice=pizzaPrice)
 
 @app.route('/thankyou')

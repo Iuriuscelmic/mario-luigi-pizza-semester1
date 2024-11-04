@@ -212,33 +212,45 @@ const addToCart = (product_id) => {
 const addCartToHTML = () => {
   listCartHTML.innerHTML = "";
   let totalQuantity = 0;
+  let totalAmount = 0;
+  
   if (carts.length > 0) {
     carts.forEach((cart) => {
-      totalQuantity = totalQuantity + cart.quantity;
-      let newCart = document.createElement("div");
-      newCart.classList.add("cart-item");
-      newCart.dataset.id = cart.product_id;
-      let positionProduct = pizzaMenu.findIndex(
-        (value) => value.itemId == cart.product_id
-      );
-      console.log(positionProduct);
-      let info = pizzaMenu[positionProduct];
-      newCart.innerHTML = `
-              <div class="item-name">${info.name}</div>
-              <div class="item-info">
-                <div class="item-quantity">
-                  <span class="minus">-</span>
-                  <span>${cart.quantity}</span>
-                  <span class="plus">+</span>
-                </div>
-                <div class="item-price">&#8364;${(
-                  info.price * cart.quantity
-                ).toFixed(2)}</div>
-              </div>`;
-      listCartHTML.appendChild(newCart);
+      totalQuantity += cart.quantity;
+      
+      // Find product across all menus
+      let info = pizzaMenu.find(p => p.itemId == cart.product_id) ||
+                 sidesMenu.find(p => p.itemId == cart.product_id) ||
+                 drinksMenu.find(p => p.itemId == cart.product_id) ||
+                 desertMenu.find(p => p.itemId == cart.product_id);
+
+      if (info) {
+        totalAmount += info.price * cart.quantity;
+
+        let newCart = document.createElement("div");
+        newCart.classList.add("cart-item");
+        newCart.dataset.id = cart.product_id;
+        newCart.innerHTML = `
+          <div class="item-name">${info.name}</div>
+          <div class="item-info">
+            <div class="item-quantity">
+              <span class="minus">-</span>
+              <span>${cart.quantity}</span>
+              <span class="plus">+</span>
+            </div>
+            <div class="item-price">&#8364;${(info.price * cart.quantity).toFixed(2)}</div>
+          </div>`;
+        listCartHTML.appendChild(newCart);
+      }
     });
   }
+
+  // Update quantity and subtotal
   iconCartSpan.innerText = totalQuantity;
+  const subtotalElement = document.querySelector(".subtotal .total-text");
+  if (subtotalElement) {
+    subtotalElement.innerText = `€${totalAmount.toFixed(2)}`;
+  }
 };
 
 listCartHTML.addEventListener("click", (event) => {
