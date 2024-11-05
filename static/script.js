@@ -58,13 +58,10 @@ const addPizzaList = () => {
                   ${product.desc}
                 </p>
                 <div class="add-item" data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
-                      2
-                    )}</div>
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
                     <button class="add-to-cart">Add to cart</button>
                     </div>
-              </div>
-              `;
+              </div>`;
       pizzaList.appendChild(newProduct);
     });
   }
@@ -93,13 +90,10 @@ const addSidesList = () => {
                   ${product.desc}
                 </p>
                   <div class="add-item data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
-                      2
-                    )}</div>
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
                     <button class="add-to-cart">Add to cart</button>
                   </div>
-              </div>
-              `;
+              </div>`;
       sidesList.appendChild(newProduct);
     });
   }
@@ -127,14 +121,11 @@ const addDrinksList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                  <div class="add-item data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
-                      2
-                    )}</div>
+                <div class="add-item" data-id="${product.itemId}">
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
                     <button class="add-to-cart">Add to cart</button>
-                  </div>
-              </div>
-              `;
+                    </div>
+              </div>`;
       drinksList.appendChild(newProduct);
     });
   }
@@ -162,14 +153,11 @@ const addDesertList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                  <div class="add-item data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
-                      2
-                    )}</div>
+                <div class="add-item" data-id="${product.itemId}">
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
                     <button class="add-to-cart">Add to cart</button>
-                  </div>
-              </div>
-              `;
+                    </div>
+              </div>`;
       desertList.appendChild(newProduct);
     });
   }
