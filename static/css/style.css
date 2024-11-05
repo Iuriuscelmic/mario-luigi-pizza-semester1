@@ -381,15 +381,6 @@ Medium: 12px
   display: block;
 }
 
-.menu-tag {
-  /* display: inline-block; */
-  /* padding: 0.8rem; */
-  /* border-radius: 150px;
-  color: var(--accent);
-  box-shadow: 0 0.8rem 1.6rem 0 #ddddddbb;
-  margin-bottom: 2.4rem; */
-}
-
 .menu-card {
   border-radius: 11px;
   box-shadow: 0 2.4rem 4.8rem 0 #dddddde8;
