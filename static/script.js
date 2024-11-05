@@ -74,26 +74,26 @@ const addSidesList = () => {
       let newProduct = document.createElement("div");
       newProduct.classList.add("menu-card");
       newProduct.innerHTML = `
-              <img src="${product.image}" alt="${
-        product.name
-      } image" class="menu-img">
-              <div class="meal-content">
-                <div class="item-header">
-                  <h3 class="item-title">${product.name}</h3>
-                  <div class="cat-inline-block">
-                    <div class="cat-tag tag--${product.tag}">
-                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
-                    </div>
-                  </div>
-                </div>
-                <p class="menu-item-description">
-                  ${product.desc}
-                </p>
-                  <div class="add-item data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
-                    <button class="add-to-cart">Add to cart</button>
-                  </div>
-              </div>`;
+        <img src="${product.image}" alt="${
+          product.name
+        } image" class="menu-img">
+        <div class="meal-content">
+          <div class="item-header">
+            <h3 class="item-title">${product.name}</h3>
+            <div class="cat-inline-block">
+              <div class="cat-tag tag--${product.tag}">
+                <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <p class="menu-item-description">
+            ${product.desc}
+          </p>
+          <div class="add-item" data-id="${product.itemId}">
+            <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>`;
       sidesList.appendChild(newProduct);
     });
   }
