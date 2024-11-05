@@ -140,7 +140,7 @@ def confirm():
     # Calculate total amount
     total_amount = sum(quantity * pizzaPrice.get(pizza, 0) for pizza, quantity in order.items())
     print(f"Total amount: {total_amount:.2f} EUR")
-    return render_template("confirm.html", order=order, table=session.get('tableNr'), total=total_amount, pizzaPrice=pizzaPrice)
+    return render_template("confirm.html", order=order, table=session.get('tableNr'), total=round(total_amount,2), pizzaPrice=pizzaPrice)
 
 @app.route('/thankyou')
 def thankyou():

@@ -2,73 +2,49 @@
   "pizzaMenu": [
     {
       "itemId": 1,
-      "name": "Margherita",
+      "name": "Luigi's Mushroom Power-Up",
       "price": 11.8,
-      "image": "/static/img/pizza1.jpg",
+      "image": "/static/img/pizzas/pizza1.jpeg",
       "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
       "tag": "vegetarian"
     },
     {
       "itemId": 2,
-      "name": "Tonno",
+      "name": "Koopa's Shwarma smash",
       "price": 14.0,
-      "image": "/static/img/pizza2.jpg",
+      "image": "/static/img/pizzas/pizza2.jpeg",
       "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
       "tag": "seafood"
     },
     {
       "itemId": 3,
-      "name": "Diavola",
+      "name": "Mario's Pepperoni Shell",
       "price": 13.8,
-      "image": "/static/img/pizza3.jpg",
+      "image": "/static/img/pizzas/pizza3.jpeg",
       "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
       "tag": "spicy"
     },
     {
       "itemId": 4,
-      "name": "Margherita",
-      "price": 11.8,
-      "image": "/static/img/pizza1.jpg",
+      "name": "Bowser's Meatball Cannon",
+      "price": 12.5,
+      "image": "/static/img/pizzas/pizza4.jpeg",
       "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
-      "tag": "vegetarian"
+      "tag": "none"
     },
     {
       "itemId": 5,
-      "name": "Margherita",
-      "price": 11.8,
-      "image": "/static/img/pizza1.jpg",
+      "name": "Wario's Bacon Bonanza",
+      "price": 15.2,
+      "image": "/static/img/pizzas/pizza5.jpeg",
       "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
-      "tag": "vegetarian"
+      "tag": "none"
     },
     {
       "itemId": 6,
-      "name": "Margherita",
-      "price": 11.8,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
-      "tag": "vegetarian"
-    },
-    {
-      "itemId": 623,
-      "name": "Margherita",
-      "price": 11.8,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
-      "tag": "vegetarian"
-    },
-    {
-      "itemId": 612,
-      "name": "Margherita",
-      "price": 11.8,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
-      "tag": "vegetarian"
-    },
-    {
-      "itemId": 651,
-      "name": "Margherita",
-      "price": 11.8,
-      "image": "/static/img/pizza1.jpg",
+      "name": "DK's Barrel BBQ Blast",
+      "price": 10.4,
+      "image": "/static/img/pizzas/pizza6.jpeg",
       "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
       "tag": "vegetarian"
     }

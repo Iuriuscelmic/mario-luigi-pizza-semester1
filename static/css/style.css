@@ -318,7 +318,7 @@ Medium: 12px
 }
 
 .hero-img {
-  width: 75%;
+  width: 100%;
   /* height: 550px; */
 }
 
@@ -507,7 +507,7 @@ Medium: 12px
 }
 
 .member-img {
-  width: 35%;
+  width: 75%;
 }
 
 /********************************/

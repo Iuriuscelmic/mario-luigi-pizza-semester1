@@ -77,7 +77,9 @@ const addSidesList = () => {
       let newProduct = document.createElement("div");
       newProduct.classList.add("menu-card");
       newProduct.innerHTML = `
-              <img src="${product.image}" alt="${product.name} image" class="menu-img">
+              <img src="${product.image}" alt="${
+        product.name
+      } image" class="menu-img">
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">${product.name}</h3>
@@ -90,12 +92,12 @@ const addSidesList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <form class="form" method="POST" data-pizza="${product.name}">
-                  <div class="add-item">
-                    <div class="menu-item-price">&#8364; ${product.price}</div>
+                  <div class="add-item data-id="${product.itemId}">
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
+                      2
+                    )}</div>
                     <button class="add-to-cart">Add to cart</button>
                   </div>
-                </form>
               </div>
               `;
       sidesList.appendChild(newProduct);
@@ -110,7 +112,9 @@ const addDrinksList = () => {
       let newProduct = document.createElement("div");
       newProduct.classList.add("menu-card");
       newProduct.innerHTML = `
-              <img src="${product.image}" alt="${product.name} image" class="menu-img">
+              <img src="${product.image}" alt="${
+        product.name
+      } image" class="menu-img">
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">${product.name}</h3>
@@ -123,12 +127,12 @@ const addDrinksList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <form class="form" method="POST" data-pizza="${product.name}">
-                  <div class="add-item">
-                    <div class="menu-item-price">&#8364; ${product.price}</div>
+                  <div class="add-item data-id="${product.itemId}">
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
+                      2
+                    )}</div>
                     <button class="add-to-cart">Add to cart</button>
                   </div>
-                </form>
               </div>
               `;
       drinksList.appendChild(newProduct);
@@ -143,7 +147,9 @@ const addDesertList = () => {
       let newProduct = document.createElement("div");
       newProduct.classList.add("menu-card");
       newProduct.innerHTML = `
-              <img src="${product.image}" alt="${product.name} image" class="menu-img">
+              <img src="${product.image}" alt="${
+        product.name
+      } image" class="menu-img">
               <div class="meal-content">
                 <div class="item-header">
                   <h3 class="item-title">${product.name}</h3>
@@ -156,12 +162,12 @@ const addDesertList = () => {
                 <p class="menu-item-description">
                   ${product.desc}
                 </p>
-                <form class="form" method="POST" data-pizza="${product.name}">
-                  <div class="add-item">
-                    <div class="menu-item-price">&#8364; ${product.price}</div>
+                  <div class="add-item data-id="${product.itemId}">
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
+                      2
+                    )}</div>
                     <button class="add-to-cart">Add to cart</button>
                   </div>
-                </form>
               </div>
               `;
       desertList.appendChild(newProduct);
@@ -177,6 +183,33 @@ const addDataToHTML = () => {
 };
 
 pizzaList.addEventListener("click", (event) => {
+  let positionClick = event.target;
+  if (positionClick.classList.contains("add-to-cart")) {
+    let product_id = positionClick.parentElement.dataset.id;
+    console.log(product_id);
+    addToCart(product_id);
+  }
+});
+
+sidesList.addEventListener("click", (event) => {
+  let positionClick = event.target;
+  if (positionClick.classList.contains("add-to-cart")) {
+    let product_id = positionClick.parentElement.dataset.id;
+    console.log(product_id);
+    addToCart(product_id);
+  }
+});
+
+drinksList.addEventListener("click", (event) => {
+  let positionClick = event.target;
+  if (positionClick.classList.contains("add-to-cart")) {
+    let product_id = positionClick.parentElement.dataset.id;
+    console.log(product_id);
+    addToCart(product_id);
+  }
+});
+
+desertList.addEventListener("click", (event) => {
   let positionClick = event.target;
   if (positionClick.classList.contains("add-to-cart")) {
     let product_id = positionClick.parentElement.dataset.id;
@@ -213,16 +246,19 @@ const addCartToHTML = () => {
   listCartHTML.innerHTML = "";
   let totalQuantity = 0;
   let totalAmount = 0;
-  
+
   if (carts.length > 0) {
     carts.forEach((cart) => {
       totalQuantity += cart.quantity;
-      
+
       // Find product across all menus
-      let info = pizzaMenu.find(p => p.itemId == cart.product_id) ||
-                 sidesMenu.find(p => p.itemId == cart.product_id) ||
-                 drinksMenu.find(p => p.itemId == cart.product_id) ||
-                 desertMenu.find(p => p.itemId == cart.product_id);
+      let info =
+        pizzaMenu.find((p) => p.itemId == cart.product_id) ||
+        sidesMenu.find((p) => p.itemId == cart.product_id) ||
+        drinksMenu.find((p) => p.itemId == cart.product_id) ||
+        desertMenu.find((p) => p.itemId == cart.product_id);
+
+      console.log(info);
 
       if (info) {
         totalAmount += info.price * cart.quantity;
@@ -231,14 +267,16 @@ const addCartToHTML = () => {
         newCart.classList.add("cart-item");
         newCart.dataset.id = cart.product_id;
         newCart.innerHTML = `
-          <div class="item-name">${info.name}</div>
+        <div class="item-name">${info.name}</div>
           <div class="item-info">
             <div class="item-quantity">
               <span class="minus">-</span>
               <span>${cart.quantity}</span>
               <span class="plus">+</span>
             </div>
-            <div class="item-price">&#8364;${(info.price * cart.quantity).toFixed(2)}</div>
+        <div class="item-price">&#8364;${(info.price * cart.quantity).toFixed(
+          2
+        )}</div>
           </div>`;
         listCartHTML.appendChild(newCart);
       }
@@ -320,10 +358,6 @@ const initApp = () => {
       sidesMenu = data.sidesMenu;
       drinksMenu = data.drinksMenu;
       desertMenu = data.desertMenu;
-      console.log(pizzaMenu);
-      console.log(sidesMenu);
-      console.log(drinksMenu);
-      console.log(desertMenu);
       addDataToHTML();
     });
 };

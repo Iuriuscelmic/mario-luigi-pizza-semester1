@@ -219,3 +219,12 @@ hr {
   font-size: 2rem;
   font-weight: 600;
 }
+
+.ty-img {
+  display: flex;
+  justify-content: center;
+}
+
+.thanks-img {
+  width: 60%;
+}
