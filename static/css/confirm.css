@@ -33,11 +33,12 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  max-width: 120rem;
 }
 
 .order-info {
-  width: 70rem;
-  /* max-width: 70rem; */
+  /* width: 100%; */
+  /* max-width: 50%; */
   background-color: #fff;
   padding: 3.2rem;
   border-radius: 12px;
@@ -60,7 +61,7 @@ body {
 }
 
 .payment-info {
-  width: 70rem;
+  /* width: 100%; */
   /* max-width: 70rem; */
   background-color: #fff;
   padding: 3.2rem;
@@ -102,16 +103,18 @@ body {
 }
 
 .pay-order {
-  width: 35rem;
+  width: 30%;
+  /* max-width: 35rem; */
   background-color: var(--white);
   border-radius: 12px;
   box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.185);
   margin-bottom: 2rem;
-  align-self: flex-start;
+  /* align-self: flex-start; */
 }
 
 .mr-bt {
   margin-bottom: 2rem;
+  width: 68%;
 }
 
 .pay-card {
@@ -226,5 +229,5 @@ hr {
 }
 
 .thanks-img {
-  width: 60%;
+  width: 80%;
 }

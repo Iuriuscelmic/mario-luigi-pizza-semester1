@@ -103,6 +103,7 @@
 
   .btn-mobile-nav {
     display: block;
+    /* z-index: 9999; */
   }
 
   .main-nav {
@@ -197,6 +198,23 @@
     grid-column: span 2;
     margin-bottom: 4.8rem;
   }
+
+  .order {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mr-bt {
+    width: 450px;
+  }
+
+  .pay-order {
+    width: 450px;
+  }
+
+  .thanks-img {
+    width: 100%;
+  }
 }
 
 /********************************/
@@ -286,5 +304,13 @@
   .cta-img-box {
     grid-row: 1;
     height: 32rem;
+  }
+
+  .mr-bt {
+    width: 370px;
+  }
+
+  .pay-order {
+    width: 370px;
   }
 }

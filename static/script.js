@@ -8,6 +8,10 @@ let dessertList = document.getElementById("dessert-list");
 let listCartHTML = document.querySelector(".cart-list");
 let iconCartSpan = document.querySelector(".nav-cta span");
 let checkOut = document.querySelector(".go-to-checkout");
+let btnNavEl = document.querySelector(".btn-mobile-nav");
+let headerEl = document.querySelector(".header");
+let allNavLinks = document.querySelectorAll(".main-nav-link");
+let sectionHeroEl = document.querySelector(".section-hero");
 
 let pizzaMenu = [];
 let sidesMenu = [];
@@ -58,7 +62,9 @@ const addPizzaList = () => {
                   ${product.desc}
                 </p>
                 <div class="add-item" data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
+                      2
+                    )}</div>
                     <button class="add-to-cart">Add to cart</button>
                     </div>
               </div>`;
@@ -75,8 +81,8 @@ const addSidesList = () => {
       newProduct.classList.add("menu-card");
       newProduct.innerHTML = `
         <img src="${product.image}" alt="${
-          product.name
-        } image" class="menu-img">
+        product.name
+      } image" class="menu-img">
         <div class="meal-content">
           <div class="item-header">
             <h3 class="item-title">${product.name}</h3>
@@ -90,7 +96,9 @@ const addSidesList = () => {
             ${product.desc}
           </p>
           <div class="add-item" data-id="${product.itemId}">
-            <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
+            <div class="menu-item-price">&#8364; ${product.price.toFixed(
+              2
+            )}</div>
             <button class="add-to-cart">Add to cart</button>
           </div>
         </div>`;
@@ -122,7 +130,9 @@ const addDrinksList = () => {
                   ${product.desc}
                 </p>
                 <div class="add-item" data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
+                      2
+                    )}</div>
                     <button class="add-to-cart">Add to cart</button>
                     </div>
               </div>`;
@@ -154,7 +164,9 @@ const addDessertList = () => {
                   ${product.desc}
                 </p>
                 <div class="add-item" data-id="${product.itemId}">
-                    <div class="menu-item-price">&#8364; ${product.price.toFixed(2)}</div>
+                    <div class="menu-item-price">&#8364; ${product.price.toFixed(
+                      2
+                    )}</div>
                     <button class="add-to-cart">Add to cart</button>
                     </div>
               </div>`;
@@ -351,42 +363,74 @@ const initApp = () => {
 };
 initApp();
 
-const scrollBtnOffer = document.getElementById('scroll-offer') ; //offer button from hero
+const scrollBtnOffer = document.getElementById("scroll-offer"); //offer button from hero
 
-scrollBtnOffer.addEventListener('click' , (event) => {
+scrollBtnOffer.addEventListener("click", (event) => {
   event.preventDefault();
-  const target = document.getElementById('section-offers');
-  target.scrollIntoView({behavior : 'smooth'});
+  const target = document.getElementById("section-offers");
+  target.scrollIntoView({ behavior: "smooth" });
 });
 
-const scroll_menu = document.getElementById('orderBtn'); //order button from hero
+const scroll_menu = document.getElementById("orderBtn"); //order button from hero
 
-scroll_menu.addEventListener('click' ,(event)=>{
+scroll_menu.addEventListener("click", (event) => {
   event.preventDefault();
-  const menu= document.getElementById('menu');
-  menu.scrollIntoView({behavior: 'smooth'});
+  const menu = document.getElementById("menu");
+  menu.scrollIntoView({ behavior: "smooth" });
 });
 
-const scroll_menu_nav = document.getElementById('menu_nav'); //menu button navbar
+const scroll_menu_nav = document.getElementById("menu_nav"); //menu button navbar
 
-scroll_menu_nav.addEventListener('click' ,(event)=>{
+scroll_menu_nav.addEventListener("click", (event) => {
   event.preventDefault();
-  const target= document.getElementById('menu');
-  target.scrollIntoView({behavior: 'smooth'});
+  const target = document.getElementById("menu");
+  target.scrollIntoView({ behavior: "smooth" });
 });
 
+const aboutUs = document.getElementById("Abt_us_nav"); //About us button navbar
 
-const aboutUs  = document.getElementById('Abt_us_nav'); //About us button navbar
-
-aboutUs.addEventListener('click' ,(event)=>{
+aboutUs.addEventListener("click", (event) => {
   event.preventDefault();
-  const target = document.getElementById('about-us');
-  target.scrollIntoView({behavior: 'smooth'});
+  const target = document.getElementById("about-us");
+  target.scrollIntoView({ behavior: "smooth" });
 });
 
-const scrollOffer_nav = document.getElementById('scroll-offer-nav'); //offer button navbar
-scrollOffer_nav.addEventListener('click' ,(event) => {
+const scrollOffer_nav = document.getElementById("scroll-offer-nav"); //offer button navbar
+scrollOffer_nav.addEventListener("click", (event) => {
   event.preventDefault();
-  const target = document.getElementById('section-offers');
-  target.scrollIntoView({behavior : 'smooth'});
+  const target = document.getElementById("section-offers");
+  target.scrollIntoView({ behavior: "smooth" });
 });
+
+btnNavEl.addEventListener("click", () => {
+  headerEl.classList.toggle("nav-open");
+});
+
+allNavLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (link.classList.contains("main-nav-link")) {
+      headerEl.classList.toggle("nav-open");
+    }
+  });
+});
+
+const obs = new IntersectionObserver(
+  (entries) => {
+    const ent = entries[0];
+    if (!ent.isIntersecting) {
+      document.body.classList.add("sticky");
+    }
+
+    if (ent.isIntersecting) {
+      document.body.classList.remove("sticky");
+    }
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin: "-80px",
+  }
+);
+obs.observe(sectionHeroEl);

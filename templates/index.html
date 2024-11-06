@@ -26,8 +26,12 @@
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li><a class="main-nav-link" id="menu_nav" href="#">Menu</a></li>
-          <li><a class="main-nav-link" id ="Abt_us_nav" href="#">About Us</a></li>
-          <li><a class="main-nav-link" id="scroll-offer-nav" href="#">Offers</a></li>
+          <li>
+            <a class="main-nav-link" id="Abt_us_nav" href="#">About Us</a>
+          </li>
+          <li>
+            <a class="main-nav-link" id="scroll-offer-nav" href="#">Offers</a>
+          </li>
           <li>
             <div class="nav-cta">
               <button class="nav-icon">
@@ -95,15 +99,20 @@
               like family.
             </p>
             {% if session.get('logged_in') %}
-            <a href="#offers" class="btn btn--full margin-right-sm" id="scroll-offer"
+            <a
+              href="#offers"
+              class="btn btn--full margin-right-sm"
+              id="scroll-offer"
               >View Offers</a
-            > <!-- target section is on line 227 --> 
+            >
+            <!-- target section is on line 227 -->
             {% else %}
             <a href="/signup" class="btn btn--full margin-right-sm"
               >Become a member</a
             >
             {% endif %}
-            <a href="#" class="btn btn--outline" id ="orderBtn"> Order &darr;</a> <!-- target is menu line 120-->
+            <a href="#" class="btn btn--outline" id="orderBtn"> Order &darr;</a>
+            <!-- target is menu line 120-->
           </div>
           <div class="hero-img-box">
             <img
@@ -176,7 +185,7 @@
       <!-- MENU SECTION END -->
 
       <!-- ABOUT SECTION -->
-      <section  id ="about-us" class="section-about">
+      <section id="about-us" class="section-about">
         <div class="container">
           <span class="subheading">About us</span>
           <h2 class="heading-secondary">Meet the bang brothers!</h2>
@@ -484,6 +493,8 @@
           </ul>
         </div>
         <div class="nav-col">
+          <div id="scroll-offer"></div>
+
           <p class="footer-heading">Resources</p>
           <ul class="footer-nav">
             <li><a class="footer-links" href="#">Recipe directory</a></li>
