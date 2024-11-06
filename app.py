@@ -54,7 +54,21 @@ CREATE TABLE IF NOT EXISTS accounts (
 )
 """)
 
-pizzaPrice = {
+product_prices = {
+    # Drinks Menu
+    "Yoshi's Sweet Juice": 3.5,
+    "Penguin Kingdom Fresh Mineral Water": 4.0,
+    "Goomba Cola Extract": 3.5,
+    "Bullet Bill's Liquid Delight": 2.5,
+    "Toad's Orange Splash": 4.5,
+    "Healthy Daisy's Concoction": 2.5,
+    # Dessert Menu
+    "Yoshi's Ice Cream": 3.5,
+    "Bowser's Castle's Lava Cake": 4.5,
+    "Mario's Cinna Shell Sticks": 4.5,
+    "Mini Pancake Power-Up": 4.0,
+    "Peach's Chocolate Pizza": 3.5,
+    "Bowser's Panna Cotta": 4.5,
     # Pizza Menu
     "Luigi's Mushroom Power-Up": 11.8,
     "Koopa's Shwarma smash": 14.0,
@@ -63,26 +77,12 @@ pizzaPrice = {
     "Wario's Bacon Bonanza": 15.2,
     "DK's Barrel BBQ Blast": 10.4,
     # Sides Menu
-    "Fries": 11.8,
-    "Garlic Bread": 5.5,
-    "Caesar Salad": 7.0,
-    "Chicken Wings": 9.5,
-    "Mozzarella Sticks": 6.0,
-    "Onion Rings": 5.0,
-    # Drinks Menu
-    "Yoshi's Sweet Juice": 3.5,
-    "Peach's Lemonade": 4.0,
-    "Mario's Iced Coffee": 3.5,
-    "Luigi's Mineral Water": 2.5,
-    "Toad's Orange Splash": 4.5,
-    "Bowser's Brew": 2.5,
-    # Desert Menu
-    "Yoshi's Ice Cream": 3.5,
-    "Mario's Chocolate Lava Cake": 4.5,
-    "Princess Peach's Cheesecake": 4.5,
-    "Toad's Tiramisu": 4.0,
-    "Luigi's Fruit Salad": 3.5,
-    "Bowser's Panna Cotta": 4.5,
+    "Bob-Omb oven fries": 11.8,
+    "Goomba's Pepperoni bites": 5.5,
+    "Power-Up Pizza Dog": 7.0,
+    "Red Shell Buffalo Wings": 9.5,
+    "Shy Guy's Cheesy Bread": 6.0,
+    "Yoshi's Dino Dippers": 5.0,
 }
 
 # Map product IDs to product names
@@ -94,24 +94,24 @@ def get_product_name_by_id(product_id):
         '4': "Bowser's Meatball Cannon",
         '5': "Wario's Bacon Bonanza",
         '6': "DK's Barrel BBQ Blast",
-        '7': "Fries",
-        '8': "Garlic Bread",
-        '9': "Caesar Salad",
-        '10': "Chicken Wings",
-        '11': "Mozzarella Sticks",
-        '12': "Onion Rings",
+        '7': "Bob-Omb oven fries",
+        '8': "Goomba's Pepperoni bites",
+        '9': "Power-Up Pizza Dog",
+        '10': "Red Shell Buffalo Wings",
+        '11': "Shy Guy's Cheesy Bread",
+        '12': "Yoshi's Dino Dippers",
         '13': "Yoshi's Sweet Juice",
-        '14': "Peach's Lemonade",
-        '15': "Mario's Iced Coffee",
-        '16': "Luigi's Mineral Water",
+        '14': "Penguin Kingdom Fresh Mineral Water",
+        '15': "Goomba Cola Extract",
+        '16': "Bullet Bill's Liquid Delight",
         '17': "Toad's Orange Splash",
-        '18': "Bowser's Brew",
+        '18': "Healthy Daisy's Concoction",
         '19': "Yoshi's Ice Cream",
-        '20': "Mario's Chocolate Lava Cake",
-        '21': "Princess Peach's Cheesecake",
-        '22': "Toad's Tiramisu",
-        '23': "Luigi's Fruit Salad",
-        '24': "Bowser's Panna Cotta"
+        '20': "Bowser's Castle's Lava Cake",
+        '21': "Mario's Cinna Shell Sticks",
+        '22': "Mini Pancake Power-Up",
+        '23': "Peach's Chocolate Pizza",
+        '24': "Bowser's Panna Cotta",
     }
     product_name = product_mapping.get(str(product_id), 'Unknown Product')
     print(f"Mapping product_id {product_id} to product_name '{product_name}'")

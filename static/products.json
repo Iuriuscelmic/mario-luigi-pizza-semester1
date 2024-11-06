@@ -52,51 +52,51 @@
   "sidesMenu": [
     {
       "itemId": 7,
-      "name": "Fries",
+      "name": "Bob-Omb oven fries",
       "price": 11.8,
-      "image": "/static/img/fries1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "image": "/static/img/sides/side1.jpeg",
+      "desc": "Crispy oven-baked fries.",
       "tag": "vegetarian"
     },
     {
       "itemId": 8,
-      "name": "Garlic Bread",
+      "name": "Goomba's Pepperoni bites",
       "price": 5.5,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Toasted garlic bread with herbs.",
-      "tag": "vegetarian"
+      "image": "/static/img/sides/side2.jpeg",
+      "desc": "Pepperoni bites with a Goomba twist.",
+      "tag": "non-vegetarian"
     },
     {
       "itemId": 9,
-      "name": "Caesar Salad",
+      "name": "Power-Up Pizza Dog",
       "price": 7.0,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Fresh romaine lettuce with Caesar dressing.",
-      "tag": "vegetarian"
+      "image": "/static/img/sides/side3.jpeg",
+      "desc": "Pizza-flavored hot dog.",
+      "tag": "non-vegetarian"
     },
     {
       "itemId": 10,
-      "name": "Chicken Wings",
+      "name": "Red Shell Buffalo Wings",
       "price": 9.5,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Spicy grilled chicken wings.",
+      "image": "/static/img/sides/side4.jpeg",
+      "desc": "Spicy buffalo wings.",
       "tag": "spicy"
     },
     {
       "itemId": 11,
-      "name": "Mozzarella Sticks",
+      "name": "Shy Guy's Cheesy Bread",
       "price": 6.0,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Fried mozzarella cheese sticks.",
+      "image": "/static/img/sides/side5.jpeg",
+      "desc": "Cheesy garlic bread.",
       "tag": "vegetarian"
     },
     {
       "itemId": 12,
-      "name": "Onion Rings",
+      "name": "Yoshi's Dino Dippers",
       "price": 5.0,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Crispy onion rings.",
-      "tag": "vegetarian"
+      "image": "/static/img/sides/side6.jpeg",
+      "desc": "Dinosaur-shaped chicken nuggets.",
+      "tag": "non-vegetarian"
     }
   ],
   "drinksMenu": [
@@ -104,52 +104,52 @@
       "itemId": 13,
       "name": "Yoshi's Sweet Juice",
       "price": 3.5,
-      "image": "/static/img/cola.jpg",
+      "image": "/static/img/drinks/drink1.jpeg",
       "desc": "Refreshing juice inspired by Yoshi.",
       "tag": "vegetarian"
     },
     {
       "itemId": 14,
-      "name": "Peach's Lemonade",
+      "name": "Penguin Kingdom Fresh Mineral Water",
       "price": 4.0,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Delicious lemonade fit for Princess Peach.",
+      "image": "/static/img/drinks/drink2.jpeg",
+      "desc": "Fresh mineral water from Penguin Kingdom.",
       "tag": "vegetarian"
     },
     {
       "itemId": 15,
-      "name": "Mario's Iced Coffee",
+      "name": "Goomba Cola Extract",
       "price": 3.5,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Energetic iced coffee for Mario.",
+      "image": "/static/img/drinks/drink3.jpeg",
+      "desc": "Classic cola drink.",
       "tag": "vegetarian"
     },
     {
       "itemId": 16,
-      "name": "Luigi's Mineral Water",
+      "name": "Bullet Bill's Liquid Delight",
       "price": 2.5,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Pure mineral water preferred by Luigi.",
+      "image": "/static/img/drinks/drink4.jpeg",
+      "desc": "Energy drink with a kick.",
       "tag": "vegetarian"
     },
     {
       "itemId": 17,
       "name": "Toad's Orange Splash",
       "price": 4.5,
-      "image": "/static/img/pizza1.jpg",
+      "image": "/static/img/drinks/drink5.jpeg",
       "desc": "Vibrant orange drink inspired by Toad.",
       "tag": "vegetarian"
     },
     {
       "itemId": 18,
-      "name": "Bowser's Brew",
+      "name": "Healthy Daisy's Concoction",
       "price": 2.5,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Strong brewed coffee for Bowser.",
+      "image": "/static/img/drinks/drink6.jpeg",
+      "desc": "Healthy smoothie inspired by Daisy.",
       "tag": "vegetarian"
     }
   ],
-  "desertMenu": [
+  "dessertMenu": [
     {
       "itemId": 19,
       "name": "Yoshi's Ice Cream",
@@ -160,41 +160,41 @@
     },
     {
       "itemId": 20,
-      "name": "Mario's Chocolate Lava Cake",
+      "name": "Bowser's Castle's Lava Cake",
       "price": 4.5,
-      "image": "/static/img/pizza1.jpg",
+      "image": "/static/img/desserts/dessert1.jpeg",
       "desc": "Warm chocolate cake with a molten center.",
       "tag": "vegetarian"
     },
     {
       "itemId": 21,
-      "name": "Princess Peach's Cheesecake",
+      "name": "Mario's Cinna Shell Sticks",
       "price": 4.5,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Elegant cheesecake fit for a princess.",
+      "image": "/static/img/desserts/dessert2.jpeg",
+      "desc": "Cinnamon sticks with a sweet glaze.",
       "tag": "vegetarian"
     },
     {
       "itemId": 22,
-      "name": "Toad's Tiramisu",
+      "name": "Mini Pancake Power-Up",
       "price": 4.0,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Classic tiramisu with a Toad twist.",
+      "image": "/static/img/desserts/dessert3.jpeg",
+      "desc": "Mini pancakes with syrup.",
       "tag": "vegetarian"
     },
     {
       "itemId": 23,
-      "name": "Luigi's Fruit Salad",
+      "name": "Peach's Chocolate Pizza",
       "price": 3.5,
-      "image": "/static/img/pizza1.jpg",
-      "desc": "Fresh mixed fruits preferred by Luigi.",
+      "image": "/static/img/desserts/dessert4.jpeg",
+      "desc": "Chocolate pizza with fresh molten chocolate.",
       "tag": "vegetarian"
     },
     {
       "itemId": 24,
       "name": "Bowser's Panna Cotta",
       "price": 4.5,
-      "image": "/static/img/pizza1.jpg",
+      "image": "/static/img/desserts/dessert4.jpeg",
       "desc": "Rich panna cotta inspired by Bowser.",
       "tag": "vegetarian"
     }
