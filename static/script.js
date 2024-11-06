@@ -4,7 +4,7 @@ let closeBtn = document.querySelector(".close-window");
 let pizzaList = document.getElementById("pizza-list");
 let sidesList = document.getElementById("sides-list");
 let drinksList = document.getElementById("drinks-list");
-let desertList = document.getElementById("desert-list");
+let dessertList = document.getElementById("dessert-list");
 let listCartHTML = document.querySelector(".cart-list");
 let iconCartSpan = document.querySelector(".nav-cta span");
 let checkOut = document.querySelector(".go-to-checkout");
@@ -12,7 +12,7 @@ let checkOut = document.querySelector(".go-to-checkout");
 let pizzaMenu = [];
 let sidesMenu = [];
 let drinksMenu = [];
-let desertMenu = [];
+let dessertMenu = [];
 let carts = [];
 
 function showContent(tabId) {
@@ -131,10 +131,10 @@ const addDrinksList = () => {
   }
 };
 
-const addDesertList = () => {
-  desertList.innerHTML = "";
-  if (desertMenu.length > 0) {
-    desertMenu.forEach((product) => {
+const addDessertList = () => {
+  dessertList.innerHTML = "";
+  if (dessertMenu.length > 0) {
+    dessertMenu.forEach((product) => {
       let newProduct = document.createElement("div");
       newProduct.classList.add("menu-card");
       newProduct.innerHTML = `
@@ -158,7 +158,7 @@ const addDesertList = () => {
                     <button class="add-to-cart">Add to cart</button>
                     </div>
               </div>`;
-      desertList.appendChild(newProduct);
+      dessertList.appendChild(newProduct);
     });
   }
 };
@@ -167,7 +167,7 @@ const addDataToHTML = () => {
   addPizzaList();
   addSidesList();
   addDrinksList();
-  addDesertList();
+  addDessertList();
 };
 
 pizzaList.addEventListener("click", (event) => {
@@ -197,7 +197,7 @@ drinksList.addEventListener("click", (event) => {
   }
 });
 
-desertList.addEventListener("click", (event) => {
+dessertList.addEventListener("click", (event) => {
   let positionClick = event.target;
   if (positionClick.classList.contains("add-to-cart")) {
     let product_id = positionClick.parentElement.dataset.id;
@@ -244,7 +244,7 @@ const addCartToHTML = () => {
         pizzaMenu.find((p) => p.itemId == cart.product_id) ||
         sidesMenu.find((p) => p.itemId == cart.product_id) ||
         drinksMenu.find((p) => p.itemId == cart.product_id) ||
-        desertMenu.find((p) => p.itemId == cart.product_id);
+        dessertMenu.find((p) => p.itemId == cart.product_id);
 
       console.log(info);
 
@@ -345,7 +345,7 @@ const initApp = () => {
       pizzaMenu = data.pizzaMenu;
       sidesMenu = data.sidesMenu;
       drinksMenu = data.drinksMenu;
-      desertMenu = data.desertMenu;
+      dessertMenu = data.dessertMenu;
       addDataToHTML();
     });
 };

@@ -194,7 +194,7 @@
       "itemId": 24,
       "name": "Bowser's Panna Cotta",
       "price": 4.5,
-      "image": "/static/img/desserts/dessert4.jpeg",
+      "image": "/static/img/icecream.jpg",
       "desc": "Rich panna cotta inspired by Bowser.",
       "tag": "vegetarian"
     }
