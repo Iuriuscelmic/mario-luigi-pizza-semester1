@@ -3,6 +3,7 @@ import sqlite3
 import time
 import os
 import bcrypt 
+import subprocess
 
 def password_hashing(plain_password): #function to hash passwords
     salt = bcrypt.gensalt(rounds = 10)
@@ -319,4 +320,5 @@ def vouchers():
         return render_template("offers.html")
     
 if __name__ == '__main__':
+    subprocess.Popen(['python', 'arduino_client.py'], shell=True)
     app.run(host='0.0.0.0', port=5000, debug=True)
