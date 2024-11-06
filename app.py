@@ -55,31 +55,63 @@ CREATE TABLE IF NOT EXISTS accounts (
 """)
 
 pizzaPrice = {
-    'Margherita': 11.8,
-    'Tonno': 14.0,
-    'Diavola': 13.8,
-    'Pepperoni': 13.8,
-    'Garlic Bread': 5.0,
-    'Bruschetta': 6.0,
-    'Coke': 3.0,
-    'Sprite': 3.0,
-    'Ice Cream': 4.0,
-    'Tiramisu': 5.0
+    # Pizza Menu
+    "Luigi's Mushroom Power-Up": 11.8,
+    "Koopa's Shwarma smash": 14.0,
+    "Mario's Pepperoni Shell": 13.8,
+    "Bowser's Meatball Cannon": 12.5,
+    "Wario's Bacon Bonanza": 15.2,
+    "DK's Barrel BBQ Blast": 10.4,
+    # Sides Menu
+    "Fries": 11.8,
+    "Garlic Bread": 5.5,
+    "Caesar Salad": 7.0,
+    "Chicken Wings": 9.5,
+    "Mozzarella Sticks": 6.0,
+    "Onion Rings": 5.0,
+    # Drinks Menu
+    "Yoshi's Sweet Juice": 3.5,
+    "Peach's Lemonade": 4.0,
+    "Mario's Iced Coffee": 3.5,
+    "Luigi's Mineral Water": 2.5,
+    "Toad's Orange Splash": 4.5,
+    "Bowser's Brew": 2.5,
+    # Desert Menu
+    "Yoshi's Ice Cream": 3.5,
+    "Mario's Chocolate Lava Cake": 4.5,
+    "Princess Peach's Cheesecake": 4.5,
+    "Toad's Tiramisu": 4.0,
+    "Luigi's Fruit Salad": 3.5,
+    "Bowser's Panna Cotta": 4.5,
 }
 
 # Map product IDs to product names
 def get_product_name_by_id(product_id):
     product_mapping = {
-        '1': 'Margherita',
-        '2': 'Tonno',
-        '3': 'Diavola',
-        '4': 'Pepperoni',
-        '5': 'Garlic Bread',
-        '6': 'Bruschetta',
-        '7': 'Coke',
-        '8': 'Sprite',
-        '9': 'Ice Cream',
-        '10': 'Tiramisu'
+        '1': "Luigi's Mushroom Power-Up",
+        '2': "Koopa's Shwarma smash",
+        '3': "Mario's Pepperoni Shell",
+        '4': "Bowser's Meatball Cannon",
+        '5': "Wario's Bacon Bonanza",
+        '6': "DK's Barrel BBQ Blast",
+        '7': "Fries",
+        '8': "Garlic Bread",
+        '9': "Caesar Salad",
+        '10': "Chicken Wings",
+        '11': "Mozzarella Sticks",
+        '12': "Onion Rings",
+        '13': "Yoshi's Sweet Juice",
+        '14': "Peach's Lemonade",
+        '15': "Mario's Iced Coffee",
+        '16': "Luigi's Mineral Water",
+        '17': "Toad's Orange Splash",
+        '18': "Bowser's Brew",
+        '19': "Yoshi's Ice Cream",
+        '20': "Mario's Chocolate Lava Cake",
+        '21': "Princess Peach's Cheesecake",
+        '22': "Toad's Tiramisu",
+        '23': "Luigi's Fruit Salad",
+        '24': "Bowser's Panna Cotta"
     }
     product_name = product_mapping.get(str(product_id), 'Unknown Product')
     print(f"Mapping product_id {product_id} to product_name '{product_name}'")

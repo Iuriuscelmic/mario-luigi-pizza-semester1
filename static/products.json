@@ -60,142 +60,142 @@
     },
     {
       "itemId": 8,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Garlic Bread",
+      "price": 5.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Toasted garlic bread with herbs.",
       "tag": "vegetarian"
     },
     {
       "itemId": 9,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Caesar Salad",
+      "price": 7.0,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Fresh romaine lettuce with Caesar dressing.",
       "tag": "vegetarian"
     },
     {
       "itemId": 10,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Chicken Wings",
+      "price": 9.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
-      "tag": "vegetarian"
+      "desc": "Spicy grilled chicken wings.",
+      "tag": "spicy"
     },
     {
       "itemId": 11,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Mozzarella Sticks",
+      "price": 6.0,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Fried mozzarella cheese sticks.",
       "tag": "vegetarian"
     },
     {
       "itemId": 12,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Onion Rings",
+      "price": 5.0,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Crispy onion rings.",
       "tag": "vegetarian"
     }
   ],
   "drinksMenu": [
     {
       "itemId": 13,
-      "name": "Cola",
-      "price": 11.8,
+      "name": "Yoshi's Sweet Juice",
+      "price": 3.5,
       "image": "/static/img/cola.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Refreshing juice inspired by Yoshi.",
       "tag": "vegetarian"
     },
     {
       "itemId": 14,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Peach's Lemonade",
+      "price": 4.0,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Delicious lemonade fit for Princess Peach.",
       "tag": "vegetarian"
     },
     {
       "itemId": 15,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Mario's Iced Coffee",
+      "price": 3.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Energetic iced coffee for Mario.",
       "tag": "vegetarian"
     },
     {
       "itemId": 16,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Luigi's Mineral Water",
+      "price": 2.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Pure mineral water preferred by Luigi.",
       "tag": "vegetarian"
     },
     {
       "itemId": 17,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Toad's Orange Splash",
+      "price": 4.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Vibrant orange drink inspired by Toad.",
       "tag": "vegetarian"
     },
     {
       "itemId": 18,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Bowser's Brew",
+      "price": 2.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Strong brewed coffee for Bowser.",
       "tag": "vegetarian"
     }
   ],
   "desertMenu": [
     {
       "itemId": 19,
-      "name": "Ice Cream",
-      "price": 11.8,
+      "name": "Yoshi's Ice Cream",
+      "price": 3.5,
       "image": "/static/img/icecream.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Colorful ice cream inspired by Yoshi.",
       "tag": "vegetarian"
     },
     {
       "itemId": 20,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Mario's Chocolate Lava Cake",
+      "price": 4.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Warm chocolate cake with a molten center.",
       "tag": "vegetarian"
     },
     {
       "itemId": 21,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Princess Peach's Cheesecake",
+      "price": 4.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Elegant cheesecake fit for a princess.",
       "tag": "vegetarian"
     },
     {
       "itemId": 22,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Toad's Tiramisu",
+      "price": 4.0,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Classic tiramisu with a Toad twist.",
       "tag": "vegetarian"
     },
     {
       "itemId": 23,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Luigi's Fruit Salad",
+      "price": 3.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Fresh mixed fruits preferred by Luigi.",
       "tag": "vegetarian"
     },
     {
       "itemId": 24,
-      "name": "Margherita",
-      "price": 11.8,
+      "name": "Bowser's Panna Cotta",
+      "price": 4.5,
       "image": "/static/img/pizza1.jpg",
-      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "desc": "Rich panna cotta inspired by Bowser.",
       "tag": "vegetarian"
     }
   ]
