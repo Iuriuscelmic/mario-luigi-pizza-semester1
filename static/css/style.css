@@ -103,6 +103,7 @@ Medium: 12px
   width: 2.4rem;
   border: none;
   background-color: transparent;
+  color: #333;
   cursor: pointer;
 }
 
@@ -261,6 +262,7 @@ Medium: 12px
   align-items: center;
 }
 
+.go-to-checkout,
 .go-to-checkout:link,
 .go-to-checkout:visited {
   display: inline-block;
@@ -272,6 +274,12 @@ Medium: 12px
   font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.go-to-checkout:hover,
+.go-to-checkout:active {
+  background-color: #336626;
 }
 
 .subtotal {
@@ -281,7 +289,7 @@ Medium: 12px
   padding: 1rem 2rem;
 }
 
-.sub-text,
+.label,
 .total-text {
   font-size: 2.4rem;
   font-weight: 500;
@@ -356,6 +364,7 @@ Medium: 12px
   margin: 0;
   outline: none;
   transition: all 0.3s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tab {
