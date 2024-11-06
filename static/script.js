@@ -331,7 +331,7 @@ checkOut.addEventListener("click", () => {
     .then((response) => response.json())
     .then((data) => {
       console.log("Cart submitted:", data);
-      location.href = "/confirm";
+      location.href = data.redirect_url;
     })
     .catch((error) => {
       console.error("Error submitting cart:", error);
@@ -351,30 +351,42 @@ const initApp = () => {
 };
 initApp();
 
-// const form = document.querySelectorAll("form"); //get all forms by class
-// form.forEach((form) => {
-//   //for each form do this
-//   form.addEventListener("submit", function (event) {
-//     // create an event listener
-//     event.preventDefault(); //prevent default, meaning dont redirect
-//     const pizzaType = this.dataset.pizza; //this = current context in which the code is running
-//     const formData = new FormData(this); //create neew form data object
-//     formData.append("pizza", pizzaType);
+const scrollBtnOffer = document.getElementById('scroll-offer') ; //offer button from hero
 
-//     fetch("/submit_order", {
-//       //send data using fetch
-//       method: "POST",
-//       body: formData,
-//     })
-//       .then((data) => {
-//         console.log("order submitted for", pizzaType, ":", data); //data = information from the form
-//         alert(pizzaType + " added to the cart"); //notify the user
-//       })
-//       .catch((error) => {
-//         console.error("error:", error);
-//       });
-//   });
-// });
-// function redirect() {
-//   location.href = "/confirm";
-// }
+scrollBtnOffer.addEventListener('click' , (event) => {
+  event.preventDefault();
+  const target = document.getElementById('section-offers');
+  target.scrollIntoView({behavior : 'smooth'});
+});
+
+const scroll_menu = document.getElementById('orderBtn'); //order button from hero
+
+scroll_menu.addEventListener('click' ,(event)=>{
+  event.preventDefault();
+  const menu= document.getElementById('menu');
+  menu.scrollIntoView({behavior: 'smooth'});
+});
+
+const scroll_menu_nav = document.getElementById('menu_nav'); //menu button navbar
+
+scroll_menu_nav.addEventListener('click' ,(event)=>{
+  event.preventDefault();
+  const target= document.getElementById('menu');
+  target.scrollIntoView({behavior: 'smooth'});
+});
+
+
+const aboutUs  = document.getElementById('Abt_us_nav'); //About us button navbar
+
+aboutUs.addEventListener('click' ,(event)=>{
+  event.preventDefault();
+  const target = document.getElementById('about-us');
+  target.scrollIntoView({behavior: 'smooth'});
+});
+
+const scrollOffer_nav = document.getElementById('scroll-offer-nav'); //offer button navbar
+scrollOffer_nav.addEventListener('click' ,(event) => {
+  event.preventDefault();
+  const target = document.getElementById('section-offers');
+  target.scrollIntoView({behavior : 'smooth'});
+});

@@ -131,7 +131,8 @@ def submit_cart():
     
     session['order'] = order
     print(f"Updated session order: {session['order']}")
-    return jsonify({'message': 'Cart has been submitted'})
+    confirm_url = url_for('confirm' , id = session['tableNr'])
+    return jsonify({'message': 'Cart has been submitted','redirect_url' : confirm_url})
 
 @app.route("/confirm")
 def confirm():
