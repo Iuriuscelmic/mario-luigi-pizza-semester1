@@ -17,11 +17,11 @@
   </head>
   <body>
     <header class="header">
-      <a class="back-btn" href="/order"
+      <a class="back-btn" href="{{ url_for('menu',id = session['tableNr']) }}"
         ><ion-icon name="arrow-back-outline"></ion-icon
         ><span> Go Back </span></a
       >
-      <a href="#">
+      <a href="{{ url_for('menu',id = session['tableNr']) }}">
         <img
           class="logo"
           alt="Pizzeria del Gatito logo"
