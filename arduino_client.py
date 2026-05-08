@@ -3,7 +3,7 @@ import requests
 import time
 
 # Configure the serial connection to the Arduino on COM7
-ser = serial.Serial(port='COM7', baudrate=9600, timeout=1)
+ser = serial.Serial(port='COM4', baudrate=9600, timeout=1)
 flask_url = 'http://localhost:5000/get_beep_signal'  # Local Flask server URL
 
 def listen_for_beep():

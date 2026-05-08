@@ -1,0 +1,316 @@
+/********************************/
+/* BELOW 1344px (SMALL LAPTOPS) */
+/********************************/
+
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120rem;
+  }
+}
+
+/********************************/
+/* BELOW 1200px (Landscape Tablets) */
+/********************************/
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .item-title {
+    font-size: 2.4rem;
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .list {
+    gap: 1.2rem;
+  }
+
+  .list-item {
+    font-size: 1.6rem;
+  }
+}
+
+/********************************/
+/* BELOW 944px (Tablets) */
+/********************************/
+
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 8rem;
+  }
+
+  .hero-img {
+    width: 50%;
+  }
+
+  .hero-text-box,
+  .hero-img-box {
+    text-align: center;
+  }
+
+  .meal-content {
+    padding: 2.4rem;
+  }
+
+  .list-item {
+    font-size: 2rem;
+  }
+
+  .list {
+    gap: 1.2rem;
+  }
+
+  .grid--4-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-form button {
+    margin-top: 1.2rem;
+  }
+
+  .btn-mobile-nav {
+    display: block;
+    /* z-index: 9999; */
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
+
+  .nav-icon {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .nav-cta {
+    padding: 0;
+  }
+
+  .offer-card {
+    width: 65%;
+    justify-self: center;
+  }
+  .offer-bonus {
+    justify-self: center;
+  }
+}
+
+/********************************/
+/* BELOW 704px (Small Tablets) */
+/********************************/
+
+@media (max-width: 44em) {
+  .grid--3-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heading-secondary {
+    font-size: 3.6rem;
+    margin-bottom: 4.8rem;
+  }
+
+  .offer-card {
+    width: 90%;
+  }
+
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .logo-col,
+  .address-col {
+    grid-column: span 3;
+  }
+
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 4.8rem;
+  }
+
+  .order {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mr-bt {
+    width: 450px;
+  }
+
+  .pay-order {
+    width: 450px;
+  }
+
+  .thanks-img {
+    width: 100%;
+  }
+}
+
+/********************************/
+/* BELOW 704px (Small Tablets) */
+/********************************/
+
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-img {
+    width: 100%;
+  }
+
+  .menu-img {
+    width: 100%;
+  }
+
+  .btn--full {
+    margin-bottom: 2rem;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 4.8rem 0;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .section-menu,
+  .section-about,
+  .section-offers,
+  .section-cta,
+  .footer {
+    padding: 4.8rem 0;
+  }
+
+  .member-img-box:nth-child(3) {
+    grid-row: 4;
+  }
+
+  .member-img {
+    width: 100%;
+  }
+
+  .heading-tertiary {
+    font-size: 3.2rem;
+  }
+
+  .item-title {
+    font-size: 3.2rem;
+  }
+
+  /* .menu-item-price, */
+  .add-to-cart,
+  .get-offer {
+    font-size: 1.8rem;
+  }
+
+  .menu-card {
+    max-width: 80%;
+    margin: 0 10% 0 10%;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+
+  .cta-img-box {
+    grid-row: 1;
+    height: 32rem;
+  }
+
+  .mr-bt {
+    width: 370px;
+  }
+
+  .pay-order {
+    width: 370px;
+  }
+}

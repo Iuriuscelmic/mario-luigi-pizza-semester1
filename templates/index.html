@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/general.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/queries.css" />
+    <title>Pizzeria del Gatito</title>
+  </head>
+  <body class="confirm-body">
+    <header class="header">
+      <a href="#">
+        <img
+          class="logo"
+          alt="Pizzeria del Gatito logo"
+          src="/static/img/logo.png"
+        />
+      </a>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" id="menu_nav" href="#">Menu</a></li>
+          <li>
+            <a class="main-nav-link" id="Abt_us_nav" href="#">About Us</a>
+          </li>
+          <li>
+            <a class="main-nav-link" id="scroll-offer-nav" href="#">Offers</a>
+          </li>
+          <li>
+            <div class="nav-cta">
+              <button class="nav-icon">
+                <ion-icon class="nav-icon" name="cart-outline"></ion-icon>
+              </button>
+              <span class="cart-num">0</span>
+            </div>
+          </li>
+          <li>
+            <div class="nav-cta">
+              <button class="nav-icon">
+                {% if session.get('logged_in')%}
+                <a href="/logout"
+                  ><ion-icon class="nav-icon" name="exit-outline"></ion-icon
+                ></a>
+                {% else %}
+                <a href="/login"
+                  ><ion-icon class="nav-icon" name="person-outline"></ion-icon
+                ></a>
+                {% endif %}
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+    <main>
+      <section class="section-shopping-cart">
+        <div class="cart-tab">
+          <div class="cart-top">
+            <h1>Shopping Cart</h1>
+            <button class="close-window">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <div class="cart-list"></div>
+          <div class="subtotal">
+            <span class="label">Subtotal:</span>
+            <span class="total-text">€0.00</span>
+          </div>
+          <div class="shopping-cart-btn">
+            <!-- <a class="go-to-checkout" href="confirm.html">Go to Checkout</a> -->
+            <button class="go-to-checkout">Go to Checkout</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- HERO SECIION -->
+      <section class="section-hero">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h1 class="heading-primary">
+              Welcome to <br />Pizzeria del Gatito
+            </h1>
+            <p class="hero-description">
+              Pizzeria del Gatito began as a dream shared by two brothers, Mario
+              and Luigi, who always had a love for delicious food and a talent
+              for bringing people together. Inspired by their adventures and a
+              shared love for cats, they opened Pizzeria del Gatito—a place
+              where flavors are bold, the atmosphere is fun, and everyone feels
+              like family.
+            </p>
+            {% if session.get('logged_in') %}
+            <a
+              href="#offers"
+              class="btn btn--full margin-right-sm"
+              id="scroll-offer"
+              >View Offers</a
+            >
+            <!-- target section is on line 227 -->
+            {% else %}
+            <a href="/signup" class="btn btn--full margin-right-sm"
+              >Become a member</a
+            >
+            {% endif %}
+            <a href="#" class="btn btn--outline" id="orderBtn"> Order &darr;</a>
+            <!-- target is menu line 120-->
+          </div>
+          <div class="hero-img-box">
+            <img
+              src="/static/img/hero.png"
+              class="hero-img"
+              alt="Mario and Luigi as cats"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- HERO SECTION END -->
+
+      <!-- MENU SECTION -->
+      <section class="section-menu" id="menu">
+        <div class="container">
+          <span class="subheading">Menu</span>
+          <h2 class="heading-secondary">What would you like to eat?</h2>
+        </div>
+        <div class="container">
+          <nav class="menu-nav">
+            <ul class="menu-nav-list">
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab1')">
+                  <ion-icon name="pizza-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab2')">
+                  <ion-icon name="fast-food-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab3')">
+                  <ion-icon name="beer-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="menu-tag">
+                <button class="tab" onclick="showContent('tab4')">
+                  <ion-icon name="ice-cream-outline"></ion-icon>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- PIZZA TAB MENU -->
+        <div id="tab1" class="container tab-content active">
+          <div id="pizza-list" class="grid grid--3-cols"></div>
+        </div>
+        <!-- PIZZA TAB MENU END -->
+
+        <!-- SIDES TAB MENU -->
+        <div id="tab2" class="container tab-content">
+          <div id="sides-list" class="grid grid--3-cols"></div>
+        </div>
+        <!-- SIDES TAB MENU END -->
+
+        <!-- DINKS MENU TAB -->
+        <div id="tab3" class="container tab-content">
+          <div id="drinks-list" class="grid grid--3-cols"></div>
+        </div>
+        <!-- DRINKS TAB MENU END -->
+
+        <!-- DESERTS TAB MENU -->
+        <div id="tab4" class="container tab-content">
+          <div id="dessert-list" class="grid grid--3-cols"></div>
+        </div>
+        <!-- DESERTS TAB MENU END -->
+      </section>
+      <!-- MENU SECTION END -->
+
+      <!-- ABOUT SECTION -->
+      <section id="about-us" class="section-about">
+        <div class="container">
+          <span class="subheading">About us</span>
+          <h2 class="heading-secondary">Meet the bang brothers!</h2>
+        </div>
+        <div class="container grid grid--2-cols grid--center-v">
+          <div class="member-text-box">
+            <h3 class="heading-tertiary">Mario: in the front!</h3>
+            <p class="member-description">
+              "Hey there! I'm Mario, the head pizza-maker and flavor adventurer
+              here at Pizzeria del Gatito! Growing up, I always loved trying new
+              things, so creating unique pizzas is my passion. Whether it’s
+              layering pepperoni shells or experimenting with the spiciest
+              ingredients I can find, I’m all about bringing bold, exciting
+              flavors to your table. Every pizza is made with a dash of
+              adventure, and I can’t wait for you to taste it!"
+            </p>
+          </div>
+          <div class="member-img-box">
+            <img
+              src="/static/img/mario.png"
+              alt="Cat Mario"
+              class="member-img"
+            />
+          </div>
+          <div class="member-img-box">
+            <img
+              src="/static/img/luigi.png"
+              alt="Cat Luigi"
+              class="member-img"
+            />
+          </div>
+          <div class="member-text-box">
+            <h3 class="heading-tertiary">Luigi: from the back!</h3>
+            <p class="member-description">
+              "Hello! I’m Luigi, and I keep things running smoothly at Pizzeria
+              del Gatito. My job is to make sure each pizza comes out just
+              right—fresh ingredients, balanced flavors, and cooked to
+              perfection. I believe in the power of the perfect slice, and I’m
+              here to bring that to life for you. My Green Pepper Power-Up pizza
+              is just one of my favorites. Stop by, and let’s make your meal an
+              unforgettable one!"
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- ABOUT SECTION END -->
+
+      <!-- OFFERS SECTION -->
+      <section class="section-offers" id="section-offers">
+        <div class="container">
+          <span class="subheading">Offers</span>
+          <h2 class="heading-secondary">Take a look at our best offers!!!</h2>
+        </div>
+        <div class="container">
+          <div class="grid grid--4-cols">
+            <div class="offer-card">
+              <img
+                src="/static/img/offer1.jpg"
+                alt="1+1 Offer"
+                class="offer-img"
+              />
+              <div class="offer-content">
+                <div class="offer-header">
+                  <h3 class="item-title">Second pizza: free!</h3>
+                </div>
+                <p class="menu-item-description">
+                  Sign in, buy any pizza, and get a second one completely for
+                  free!
+                </p>
+                <div class="add-offer">
+                  <button class="get-offer">Get Offer!</button>
+                </div>
+              </div>
+            </div>
+            <div class="offer-card">
+              <img
+                src="/static/img/offer1.jpg"
+                alt="1+1 Offer"
+                class="offer-img"
+              />
+              <div class="offer-content">
+                <div class="offer-header">
+                  <h3 class="item-title">1 Story = 1 Free Drink</h3>
+                </div>
+                <p class="menu-item-description">
+                  Post a story on SM with our meals, and get a drink for free!
+                </p>
+                <div class="add-offer">
+                  <button class="get-offer">Get Offer!</button>
+                </div>
+              </div>
+            </div>
+            <div class="offer-card">
+              <img
+                src="/static/img/offer1.jpg"
+                alt="1+1 Offer"
+                class="offer-img"
+              />
+              <div class="offer-content">
+                <div class="offer-header">
+                  <h3 class="item-title">1 + 1 = 3 Pizzas!</h3>
+                </div>
+                <div class="margin-auto">
+                  <p class="menu-item-description">
+                    Sign in, buy any pizza, and get a second one completely for
+                    free!
+                  </p>
+                  <div class="add-offer">
+                    <button class="get-offer">Get Offer!</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="offer-bonus">
+              <h3 class="heading-tertiary">Sign up for Bonuses!</h3>
+              <ul class="list">
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Free drinks </span>
+                </li>
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Newsletter </span>
+                </li>
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Offers to email </span>
+                </li>
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Order history </span>
+                </li>
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Customize pizza </span>
+                </li>
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Schedule order </span>
+                </li>
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Collect points</span>
+                </li>
+                <li class="list-item">
+                  <ion-icon
+                    class="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  ><span> Win Prizes </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- OFFERS SECTION END -->
+
+      <!-- SIGN UP SECTION -->
+      {% if session.get('logged_in')%}
+      <div></div>
+      {% else %}
+      <section class="section-cta">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text-box">
+              <h2 class="heading-secondary">Get your first pizza for free!</h2>
+              <p class="cta-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
+                natus illo tenetur fugiat, repellendus aut, iusto asperiores
+                aspernatur
+              </p>
+
+              <form class="cta-form" action="#">
+                <div>
+                  <label for="full-name">Full Name</label>
+                  <input
+                    id="full-name"
+                    type="text"
+                    placeholder="Peach Princess"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="email">Email Address</label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="peachprincess@castle.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="select-where">Where did you hear from us?</label>
+                  <select name="" id="select-where" required>
+                    <option value="">Please choose one option:</option>
+                    <option value="friends">Friends and Family</option>
+                    <option value="youtube">YouTube Video</option>
+                    <option value="tiktok">Tik Tok</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+                <button class="btn">Sign up now</button>
+              </form>
+            </div>
+            <div
+              class="cta-img-box"
+              role="img"
+              aria-label="woman eating pizza"
+            ></div>
+          </div>
+        </div>
+      </section>
+      {% endif %}
+      <!-- SIGN UP SECTION END -->
+
+      <!-- OFFERS SECTION END -->
+    </main>
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">
+            <img
+              class="logo"
+              alt="Pizzeria del Gatito logo"
+              src="/static/img/logo.png"
+            />
+          </a>
+          <ul class="social-links">
+            <li>
+              <a class="footer-links" href="#"
+                ><ion-icon class="social-icon" name="logo-tiktok"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-links" href="#"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-links" href="#"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+          </ul>
+          <p class="copyright">
+            Copyright &copy; 2024 by DIMBL5 Inc. All rights reserved
+          </p>
+        </div>
+        <div class="address-col">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              Rachelsmolen 1, 5612 MA Eindhoven, Netherlands
+            </p>
+            <p>
+              <a class="footer-links" href="tel:+31610694748">+31-610-694-748</a
+              ><br />
+              <a class="footer-links" href="mailto:marioluigi@mammamia.com"
+                >marioluigi@mammamia.com</a
+              >
+            </p>
+          </address>
+        </div>
+        <div class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a class="footer-links" href="#">Create account</a></li>
+            <li><a class="footer-links" href="#">Sign In</a></li>
+            <li><a class="footer-links" href="#">iOS App</a></li>
+            <li><a class="footer-links" href="#">Android App</a></li>
+          </ul>
+        </div>
+        <div class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-links" href="#">About us</a>
+            </li>
+            <li><a class="footer-links" href="#">For Business</a></li>
+            <li><a class="footer-links" href="#">Partners</a></li>
+            <li><a class="footer-links" href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="nav-col">
+          <div id="scroll-offer"></div>
+
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-links" href="#">Recipe directory</a></li>
+            <li><a class="footer-links" href="#">Help Center</a></li>
+            <li><a class="footer-links" href="#">Privacy & Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
+
+<!-- <div class="menu-card">
+              <img
+                src="/static/img/pizza1.jpg"
+                alt="Pizza image"
+                class="menu-img"
+              />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margherita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <form class="form" method="POST" data-pizza="Margarita">
+                    <div class="menu-item-price">&#8364; 11.80</div>
+                    <button class="add-to-cart">Add to cart</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="/static/img/pizza2.jpg"
+                alt="Pizza image"
+                class="menu-img"
+              />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Tonno</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--seafood">
+                      <ion-icon name="fish-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, tuna and red
+                  onion.
+                </p>
+                <div class="add-item" data-name="Tonno" data-price="14.00">
+                  <div class="menu-item-price">&#8364; 14.00</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="/static/img/pizza3.jpg"
+                alt="Pizza image"
+                class="menu-img"
+              />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Diavola</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--spicy">
+                      <ion-icon
+                        name="flame-outline"
+                        class="cat-icon"
+                      ></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and spicy
+                  pepperoni.
+                </p>
+                <div class="add-item" data-name="Diavola" data-price="13.80">
+                  <div class="menu-item-price">&#8364; 13.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="/static/img/pizza1.jpg"
+                alt="Pizza image"
+                class="menu-img"
+              />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="/static/img/pizza1.jpg"
+                alt="Pizza image"
+                class="menu-img"
+              />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="/static/img/pizza1.jpg"
+                alt="Pizza image"
+                class="menu-img"
+              />
+              <div class="meal-content">
+                <div class="item-header">
+                  <h3 class="item-title">Margarita</h3>
+                  <div class="cat-inline-block">
+                    <div class="cat-tag tag--vegetarian">
+                      <ion-icon name="leaf-outline" class="cat-icon"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <p class="menu-item-description">
+                  Tomaten di San Marzano, Mozzarella fior di latte, and basil.
+                </p>
+                <div class="add-item">
+                  <div class="menu-item-price">&#8364; 11.80</div>
+                  <button class="add-to-cart">Add to cart</button>
+                </div>
+              </div>
+            </div> -->
+
+<!-- <div class="cart-item">
+              <div class="item-name">Margarita</div>
+              <div class="item-info">
+                <div class="item-quantity">
+                  <span class="minus">-</span>
+                  <span>1</span>
+                  <span class="plus">+</span>
+                </div>
+                <div class="item-price">&#8364;11.80</div>
+              </div>
+            </div> -->

@@ -1,36 +1,139 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>confirm order</title>
-    </head>
-    <body>
-        <h1>Order for table : {{ table }}</h1>
-        <table>
-            <thead>
-              <tr>
-                <th>Pizza</th>
-                <th>Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-            {% for key, value in order.items() %}
-             <tr>
-                 <td> {{ key }} </td>
-                 <td> {{ value }} </td>
-             </tr>
-            {% endfor %}
-            </tbody>
-          </table>
-          <h2>Your total : {{ total }} euro </h2>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/general.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/confirm.css" />
+    <link rel="stylesheet" href="/static/css/queries.css" />
+    <title>Confirm Order</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="back-btn" href="{{ url_for('menu',id = session['tableNr']) }}"
+        ><ion-icon name="arrow-back-outline"></ion-icon
+        ><span> Go Back </span></a
+      >
+      <a href="#">
+        <img
+          class="logo"
+          alt="Pizzeria del Gatito logo"
+          src="/static/img/logo.png"
+        />
+      </a>
+    </header>
 
-         <div style="text-align: center; margin-top: 20px;"></div>
-        <button id="placeOrder" onclick="place()">Place Order</button>
-    </div>
+    <main>
+      <section class="confirm">
+        <div class="container">
+          <div class="order">
+            <div class="mr-bt">
+              <div class="order-info">
+                <h1 class="heading-secondary">Order for table : {{ table }}</h1>
+                {% for key, value in order.items() %}
+                <div class="order-item">
+                  <div class="order-price">{{ value }} X</div>
+                  <div class="order-name">{{ key }}</div>
+                </div>
+                {% endfor %}
+              </div>
+              <div class="payment-info">
+                <h3 class="heading-tertiary">Payment</h3>
+                <div class="credit-info">
+                  <div class="icon">
+                    <ion-icon name="card-outline"></ion-icon>
+                  </div>
+                  <div class="cart-info">+ Visa ****1234</div>
+                  <button class="edit">Edit</button>
+                </div>
+              </div>
+            </div>
+            <div class="pay-order">
+              <div class="pay-card">
+                <button id="placeOrder" class="pay-card-btn" onclick="place()">
+                  Pay with card
+                </button>
+                <button id="placeOrder" class="pay-cash-btn" onclick="place()">
+                  Pay cash
+                </button>
+              </div>
+              <hr />
+              <div class="promotion">
+                <h3 class="pay-title">Promotions</h3>
+                <div class="credit-info">
+                  <div class="promo-icon">
+                    <ion-icon name="pricetag-outline"></ion-icon>
+                  </div>
+                  <div class="promo-info">Add promo code</div>
+                  <ion-icon
+                    class="promo-right"
+                    name="chevron-forward-outline"
+                  ></ion-icon>
+                </div>
+              </div>
+              <hr />
+              <div class="pay-total">
+                <div class="total">Order total</div>
+                <div class="confirm-subtotal">
+                  <span>Subtotal</span>
+                  <span>&#8364;{{ total }}</span>
+                </div>
+                <div class="fees">
+                  <span>Fees</span
+                  ><ion-icon name="information-circle-outline"></ion-icon>
+                </div>
+                <div class="confirm-total">
+                  <span>Total</span>
+                  <span>&#8364;{{ total }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script>
-        function place()
-        {
-            location.href='/thankyou'
-        }
+      function place() {
+        location.href = "/thankyou";
+      }
     </script>
-    </body>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/static/script.js"></script>
+  </body>
 </html>
+
+<!-- <h1>Order for table : {{ table }}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Pizza</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key, value in order.items() %}
+    <tr>
+      <td>{{ key }}</td>
+      <td>{{ value }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h2>Your total : {{ total }} euro</h2>
+
+<div style="text-align: center; margin-top: 20px"></div>
+<button id="placeOrder" onclick="place()">Place Order</button> -->

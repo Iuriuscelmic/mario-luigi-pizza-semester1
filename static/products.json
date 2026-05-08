@@ -1,0 +1,202 @@
+{
+  "pizzaMenu": [
+    {
+      "itemId": 1,
+      "name": "Luigi's Mushroom Power-Up",
+      "price": 11.8,
+      "image": "/static/img/pizzas/pizza1.jpeg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 2,
+      "name": "Koopa's Shwarma smash",
+      "price": 14.0,
+      "image": "/static/img/pizzas/pizza2.jpeg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "seafood"
+    },
+    {
+      "itemId": 3,
+      "name": "Mario's Pepperoni Shell",
+      "price": 13.8,
+      "image": "/static/img/pizzas/pizza3.jpeg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "spicy"
+    },
+    {
+      "itemId": 4,
+      "name": "Bowser's Meatball Cannon",
+      "price": 12.5,
+      "image": "/static/img/pizzas/pizza4.jpeg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "none"
+    },
+    {
+      "itemId": 5,
+      "name": "Wario's Bacon Bonanza",
+      "price": 15.2,
+      "image": "/static/img/pizzas/pizza5.jpeg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "none"
+    },
+    {
+      "itemId": 6,
+      "name": "DK's Barrel BBQ Blast",
+      "price": 10.4,
+      "image": "/static/img/pizzas/pizza6.jpeg",
+      "desc": "Tomaten di San Marzano, Mozzarella fior di latte, and basil.",
+      "tag": "vegetarian"
+    }
+  ],
+  "sidesMenu": [
+    {
+      "itemId": 7,
+      "name": "Bob-Omb oven fries",
+      "price": 11.8,
+      "image": "/static/img/sides/side1.jpeg",
+      "desc": "Crispy oven-baked fries.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 8,
+      "name": "Goomba's Pepperoni bites",
+      "price": 5.5,
+      "image": "/static/img/sides/side2.jpeg",
+      "desc": "Pepperoni bites with a Goomba twist.",
+      "tag": "non-vegetarian"
+    },
+    {
+      "itemId": 9,
+      "name": "Power-Up Pizza Dog",
+      "price": 7.0,
+      "image": "/static/img/sides/side3.jpeg",
+      "desc": "Pizza-flavored hot dog.",
+      "tag": "non-vegetarian"
+    },
+    {
+      "itemId": 10,
+      "name": "Red Shell Buffalo Wings",
+      "price": 9.5,
+      "image": "/static/img/sides/side4.jpeg",
+      "desc": "Spicy buffalo wings.",
+      "tag": "spicy"
+    },
+    {
+      "itemId": 11,
+      "name": "Shy Guy's Cheesy Bread",
+      "price": 6.0,
+      "image": "/static/img/sides/side5.jpeg",
+      "desc": "Cheesy garlic bread.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 12,
+      "name": "Yoshi's Dino Dippers",
+      "price": 5.0,
+      "image": "/static/img/sides/side6.jpeg",
+      "desc": "Dinosaur-shaped chicken nuggets.",
+      "tag": "non-vegetarian"
+    }
+  ],
+  "drinksMenu": [
+    {
+      "itemId": 13,
+      "name": "Yoshi's Sweet Juice",
+      "price": 3.5,
+      "image": "/static/img/drinks/drink1.jpeg",
+      "desc": "Refreshing juice inspired by Yoshi.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 14,
+      "name": "Penguin Kingdom Fresh Mineral Water",
+      "price": 4.0,
+      "image": "/static/img/drinks/drink2.jpeg",
+      "desc": "Fresh mineral water from Penguin Kingdom.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 15,
+      "name": "Goomba Cola Extract",
+      "price": 3.5,
+      "image": "/static/img/drinks/drink3.jpeg",
+      "desc": "Classic cola drink.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 16,
+      "name": "Bullet Bill's Liquid Delight",
+      "price": 2.5,
+      "image": "/static/img/drinks/drink4.jpeg",
+      "desc": "Energy drink with a kick.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 17,
+      "name": "Toad's Orange Splash",
+      "price": 4.5,
+      "image": "/static/img/drinks/drink5.jpeg",
+      "desc": "Vibrant orange drink inspired by Toad.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 18,
+      "name": "Healthy Daisy's Concoction",
+      "price": 2.5,
+      "image": "/static/img/drinks/drink6.jpeg",
+      "desc": "Healthy smoothie inspired by Daisy.",
+      "tag": "vegetarian"
+    }
+  ],
+  "dessertMenu": [
+    {
+      "itemId": 19,
+      "name": "Yoshi's Ice Cream",
+      "price": 3.5,
+      "image": "/static/img/icecream.jpg",
+      "desc": "Colorful ice cream inspired by Yoshi.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 20,
+      "name": "Bowser's Castle's Lava Cake",
+      "price": 4.5,
+      "image": "/static/img/desserts/dessert1.jpeg",
+      "desc": "Warm chocolate cake with a molten center.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 21,
+      "name": "Mario's Cinna Shell Sticks",
+      "price": 4.5,
+      "image": "/static/img/desserts/dessert2.jpeg",
+      "desc": "Cinnamon sticks with a sweet glaze.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 22,
+      "name": "Mini Pancake Power-Up",
+      "price": 4.0,
+      "image": "/static/img/desserts/dessert3.jpeg",
+      "desc": "Mini pancakes with syrup.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 23,
+      "name": "Peach's Chocolate Pizza",
+      "price": 3.5,
+      "image": "/static/img/desserts/dessert4.jpeg",
+      "desc": "Chocolate pizza with fresh molten chocolate.",
+      "tag": "vegetarian"
+    },
+    {
+      "itemId": 24,
+      "name": "Bowser's Panna Cotta",
+      "price": 4.5,
+      "image": "/static/img/icecream.jpg",
+      "desc": "Rich panna cotta inspired by Bowser.",
+      "tag": "vegetarian"
+    }
+  ]
+}

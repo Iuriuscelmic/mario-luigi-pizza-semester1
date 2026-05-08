@@ -1,9 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Thank you</title>
-    </head>
-    <body>
-        Thank you
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/general.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/queries.css" />
+    <link rel="stylesheet" href="/static/css/confirm.css" />
+    <title>Thank you</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="back-btn" href="{{ url_for('menu',id = session['tableNr']) }}"
+        ><ion-icon name="arrow-back-outline"></ion-icon
+        ><span> Go Back </span></a
+      >
+      <a href="{{ url_for('menu',id = session['tableNr']) }}">
+        <img
+          class="logo"
+          alt="Pizzeria del Gatito logo"
+          src="/static/img/logo.png"
+        />
+      </a>
+    </header>
+    <div class="container">
+      <div class="ty-img">
+        <img class="thanks-img" src="/static/img/Artboard 8.png" />
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/static/script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,68 @@
+.dash-card {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.185);
+  padding: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+.dash-card form {
+  margin-left: auto;
+}
+
+.table-info {
+  padding-right: 3.2rem;
+  border-right: 0.5px solid rgba(0, 0, 0, 0.185);
+  align-self: flex-start;
+}
+
+.table-info p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.pizza-quant {
+  font-weight: 400;
+  /* text-align: center; */
+  padding: 0 3.2rem;
+  align-self: flex-start;
+}
+
+.pizza-quant th {
+  font-size: 2.4rem;
+  padding: 0 1.6rem 1.6rem 1.6rem;
+}
+
+.pizza-quant td {
+  font-size: 1.8rem;
+  padding: 1rem 0.6rem;
+}
+
+.pz-name {
+  text-align: left;
+}
+
+.pz-quant {
+  text-align: center;
+}
+
+button {
+  border: none;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  background-color: #df5605;
+
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover,
+button:active {
+  background-color: #336626;
+}
